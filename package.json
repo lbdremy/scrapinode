@@ -1,0 +1,25 @@
+{
+    "author": {
+        "name"  : "Remy Loubradou" ,
+        "email" : "remy.loubradou@gmail.com" ,
+        "url" : "https://twitter.com/#!/lbdremy"
+    },
+    "name": "scrapinode",
+    "main": "./lib/scrapinode",
+    "description": "Scraper",
+    "version": "0.0.1",
+    "repository": {
+    "type": "git",
+        "url": "https://github.com/lbdremy/scrapinode"
+    },
+    "engines": {
+        "node": ">= 0.4.7"
+    },
+    "dependencies": {
+        "jsdom": "0.2.x",
+        "request": "1.9.x"
+    },
+    "devDependencies": {
+        "vows": ">=0.5.8"  
+    }
+}
