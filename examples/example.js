@@ -11,12 +11,14 @@ scrapinode.createScraper(url,function(scraper){
 });
 
 
-var url2 = 'http://www.rueducommerce.fr/TV-Hifi-Home-Cinema/TV-3D/TV-de-32-a-37/SAMSUNG/4842915-UE32D6200-Televiseur-LED-16-9-32-81cm-3D-Ready-HDTV-1080p-TNT-HD-200Hz-DLNA-SMART-TV-4xHDMI-CI-USB.htm#xtatc=INT-191-0||00';
+var url2 = 'http://www.youtube.com/watch?v=03_9oBmJ6nw&feature=feedrec_grec_index';
 
 scrapinode.createScraper(url2,function(scraper){
    var image = scraper.get('images');
    var title = scraper.get('title');
    var description = scraper.get('description');
+   var videos = scraper.get('videos');
+   console.log(videos);
    console.log(title);
    console.log(description);
 });
