@@ -1,1 +1,1 @@
-require('./lib/scrapinode');
+module.exports = require('./lib/scrapinode');

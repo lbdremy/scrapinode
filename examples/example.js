@@ -1,4 +1,4 @@
-var scrapinode = require('./../lib/scrapinode');
+var scrapinode = require('./../main.js');
 
 var url = 'http://www.amazon.co.uk/gp/product/B002FK9I5Q/ref=s9_simh_gw_p79_d0_g79_i2?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-2&pf_rd_r=1P7JMEKKPYPGVQHZ8MPB&pf_rd_t=101&pf_rd_p=467128533&pf_rd_i=468294';
 
