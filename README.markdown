@@ -4,11 +4,11 @@
  
 ##Get Started
     var scrapinode = require('scrapinode');
-    var myScrapnets = require('my-scrapnets');
+    var myScrapule = require('my-scrapule');
     scrapinode.init(); // Extend the prototype of the Scraper Class with available scrapnets in the scrapnets directory(/lib/scrapnet)
     
     // Extend the prototype of the Scraper Class with my own scrapnet module
-    scrapinode.use(myScrapnets);
+    scrapinode.use(myScrapule);
     
     // My first scraper, scrap the awesome video page of Norman
     var url = 'http://www.youtube.com/user/NormanFaitDesVideos';
@@ -27,7 +27,7 @@
       var description = scraper.get('description');
     });
     
-##Create my own scrapnet module
+##Create my own scrap(mod)ule
     var scrapVideos = function($,url){
       //scrap stuff with Jquery
       $('video').each(function(){
@@ -36,8 +36,8 @@
     }
    
     // You can expose object/array of objects 
-    // exports.scrapnets = [{ name : 'videos' , scrap : scrapVideos }];
-    exports.scrapnets = { name : 'videos' , scrap : scrapVideos };
+    // exports.scrapule = [{ extractor : 'videos' , scrap : scrapVideos }, {...}];
+    exports.scrapule = { extractor : 'videos' , scrap : scrapVideos };
    
 ##Contributions
 Contributions, suggestions, comments, issues^^ are welcome.
