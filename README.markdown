@@ -28,16 +28,16 @@
     });
     
 ##Create my own scrapnet module
-   var scrapVideos = function($,url){
+    var scrapVideos = function($,url){
       //scrap stuff with Jquery
       $('video').each(function(){
-       ...
+         ...
       }
-   }
+    }
    
-   // You can expose object/array of objects 
-   // exports.scrapnets = [{ name : 'videos' , scrap : scrapVideos }];
-   exports.scrapnets = { name : 'videos' , scrap : scrapVideos };
+    // You can expose object/array of objects 
+    // exports.scrapnets = [{ name : 'videos' , scrap : scrapVideos }];
+    exports.scrapnets = { name : 'videos' , scrap : scrapVideos };
    
 ##Contributions
 Contributions, suggestions, comments, issues^^ are welcome.
