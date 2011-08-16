@@ -5,7 +5,7 @@
 ##Get Started
     var scrapinode = require('scrapinode');
     var myScrapule = require('my-scrapule');
-    scrapinode.init(); // Extend the prototype of the Scraper Class with available scrapnets in the scrapnets directory(/lib/scrapnet)
+    scrapinode.init(); // Extend the prototype of the Scraper Class with available scrapules in the scrapules directory(/lib/scrapnet)
     
     // Extend the prototype of the Scraper Class with my own scrapnet module
     scrapinode.use(myScrapule);
