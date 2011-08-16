@@ -16,7 +16,8 @@
     
     // My first scraper, scrap the awesome video page of Norman
     var url = 'http://www.youtube.com/user/NormanFaitDesVideos';
-    scrapinode.createScraper(url ,function(scraper){
+    scrapinode.createScraper(url ,function(err,scraper){
+      if(err) console.log(err);
       var images = scraper.get('images');
       var videos = scraper.get('videos');
       var title = scraper.get('title');
@@ -25,7 +26,8 @@
     
     // My second scraper, scrap an amazon product
     var url = 'http://www.youtube.com/user/NormanFaitDesVideos';
-    scrapinode.createScraper(url ,function(scraper){
+    scrapinode.createScraper(url ,function(err,scraper){
+      if(err) console.log(err);
       var images = scraper.get('images');
       var title = scraper.get('title');
       var description = scraper.get('description');
