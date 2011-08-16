@@ -1,8 +1,8 @@
 # Scrapinode 
    - 1 SCRAPER = 1 SITE SCRAPED
    - Extend the behavior of your scraper as much as you want with your own module (just expose the good interface).
-##Install
 
+##Install
     `npm install scrapinode`
     
 ##Get Started
