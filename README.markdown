@@ -3,7 +3,7 @@
    - Extend the behavior of your scraper as much as you want with your own module (just expose the good interface).
 ##Install
 
-    npm install scrapinode
+    `npm install scrapinode`
     
 ##Get Started
 
