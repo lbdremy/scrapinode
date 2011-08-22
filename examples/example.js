@@ -13,7 +13,7 @@ scrapinode.createScraper(url,function(err,scraper){
    console.log(description);
 });
 
-var url3 = 'http://www.youtube.com/user/NormanFaitDesVideos';
+var url3 = 'http://www.regular-expressions.info/javascriptexample.html';
 
 scrapinode.createScraper(url3,function(err,scraper){
    var images = scraper.get('images');
