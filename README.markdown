@@ -1,53 +1,67 @@
 # Scrapinode 
-   - 1 SCRAPER = 1 SITE SCRAPED
-   - Extend the behavior of your scraper as much as you want with your own module (just expose the good interface).
+   - 1 Scraper = 1 website scraped
 
+##Features
+###Client
+   - Implicit routing using domain name and content-type name.
+   - Possibility to add extensions for a better scrapping.
+   - Lazy loading of these extensions
+   
+###Developers
+   - Create your own scrap function for specific domain name and specific content.
+   
 ##Install
     `npm install scrapinode`
     
 ##Get Started
-
     var scrapinode = require('scrapinode');
-    var myScrapule = require('my-scrapule');
-    scrapinode.init(); // Extend the prototype of the Scraper Class with available scrapules in the scrapules directory(/lib/scrapnet)
+    scrapinode.init(); // Look at default scrapule contained in /lib/scrapules
     
-    // Extend the prototype of the Scraper Class with my own scrapnet module
-    scrapinode.use(myScrapule);
+    scrapinode.use('/path/to/my/personal/scrapules/'); // Add a scrapule (a scrapule is a set of extractor)
     
-    // My first scraper, scrap the awesome video page of Norman
+    // Scrap the awesome video page of Norman on YouTube
     var url = 'http://www.youtube.com/user/NormanFaitDesVideos';
     scrapinode.createScraper(url ,function(err,scraper){
-      if(err) console.log(err);
-      var images = scraper.get('images');
-      var videos = scraper.get('videos');
-      var title = scraper.get('title');
-      var description = scraper.get('description');
+      if(err){ 
+         console.log(err);
+      }else{
+         var images = scraper.get('images');
+         var videos = scraper.get('videos');
+         var title = scraper.get('title');
+         var description = scraper.get('description');
+       }
     });
     
-    // My second scraper, scrap an amazon product
+    // Scrap an amazon product
     var url = 'http://www.youtube.com/user/NormanFaitDesVideos';
     scrapinode.createScraper(url ,function(err,scraper){
-      if(err) console.log(err);
-      var images = scraper.get('images');
-      var title = scraper.get('title');
-      var description = scraper.get('description');
+      if(err){ 
+         console.log(err);
+      }else{
+         var images = scraper.get('images');
+         var videos = scraper.get('videos');
+         var title = scraper.get('title');
+         var description = scraper.get('description');
+       }
     });
     
 ##Create my own scrap(mod)ule
 
     var scrapVideos = function($,url){
+      var videos = [];
       //scrap stuff with Jquery
       $('video').each(function(){
          ...
       }
+      return videos;
     }
    
-    // You can expose object/array of objects 
-    // exports.scrapule = [{ extractor : 'videos' , scrap : scrapVideos }, {...}];
-    exports.scrapule = { extractor : 'videos' , scrap : scrapVideos };
+    // You can expose object/array of extractors. An extractor is an object having two specifics properties: route {string}(pattern: `site#content`) and operation {function}. 
+    // exports = [{ route : 'site#videos' , operation : scrapVideos }, {...}];
+    exports = { route : 'site#videos' , operation : scrapVideos };
    
 ##Contributions
-Contributions, suggestions, comments, issues^^ are welcome.
+Contributions, suggestions, comments, issues are welcome.
 
 ##Licence
 (The MIT License)

@@ -18,7 +18,6 @@
     "dependencies": {
         "jsdom": ">=0.2.x",
         "request": ">=1.9.x",
-        "walk" : ">=0.9.1"
     },
     "devDependencies": {
         "vows": ">=0.5.8"  
