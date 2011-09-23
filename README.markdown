@@ -15,9 +15,9 @@
     
 ##Get Started
     var scrapinode = require('scrapinode');
-    scrapinode.init(); // Look at default scrapule contained in /lib/scrapules
+    scrapinode.init(); // Add default scrapule to the set of scrapules. Look at default scrapule contained in /lib/scrapules
     
-    scrapinode.use('/path/to/my/personal/scrapules/'); // Add a scrapule (a scrapule is a set of extractor)
+    scrapinode.use( __dirname + '/path/to/my/personal/scrapules/'); // Add a scrapule (a scrapule is a set of extractor) an absolute path is required
     
     // Scrap the awesome video page of Norman on YouTube
     var url = 'http://www.youtube.com/user/NormanFaitDesVideos';
