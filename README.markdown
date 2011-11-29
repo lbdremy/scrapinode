@@ -59,7 +59,11 @@
     // You can expose object/array of extractors. An extractor is an object having two specifics properties: route {string}(pattern: `site#content`) and operation {function}. 
     // exports = [{ route : 'site#videos' , operation : scrapVideos }, {...}];
     exports = { route : 'site#videos' , operation : scrapVideos };
-   
+
+##Test
+
+`npm test`
+
 ##Contributions
 Contributions, suggestions, comments, issues are welcome.
 
