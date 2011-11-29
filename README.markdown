@@ -1,5 +1,7 @@
 # Scrapinode 
-   - 1 Scraper = 1 website scraped
+Modular Scraper using Jquery and a plugin that allow you to use regex in your selectors.
+
+[![](http://travis-ci.org/lbdremy/scrapinode.png)](http://travis-ci.org/#!/lbdremy/scrapinode)
 
 ##Features
 ###Client
@@ -45,7 +47,7 @@
        }
     });
     
-##Create my own scrap(mod)ule
+##Create your own scrap(mod)ule
 
     var scrapVideos = function($,url){
       var videos = [];
