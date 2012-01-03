@@ -6,8 +6,8 @@
     },
     "name": "scrapinode",
     "main": "./main.js",
-    "description": "Modular Scraper using Jquery and a plugin that allow you to use regex as selector.",
-    "version": "0.0.4",
+    "description": "Modular scraper using Jquery and a plugin that allow you to use regex in your selector.",
+    "version": "0.0.5",
     "repository": {
       "type": "git",
       "url": "https://github.com/lbdremy/scrapinode"
