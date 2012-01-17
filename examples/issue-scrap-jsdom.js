@@ -1,6 +1,7 @@
 var scrapinode = require('./../main.js')();
 
 // Issue with this page similar to https://github.com/tmpvar/jsdom/issues/290
+// Fix https://github.com/tmpvar/jsdom/pull/387
 // Works great with cheerio
 var url = 'http://www.dell.com/uk/p/xps-15z/pd?oc=n0015z01epp&model_id=xps-15z&';
 
