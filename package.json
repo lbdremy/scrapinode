@@ -16,7 +16,7 @@
       "node": "0.4.x"
     },
     "dependencies": {
-      "jsdom": "0.2.x",
+      "jsdom": "git+ssh://git@github.com:lbdremy/jsdom.git",
       "request": "1.9.x",
       "cheerio" : "0.4.x"
     },
