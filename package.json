@@ -17,7 +17,7 @@
     },
     "dependencies": {
       "jsdom": "git+ssh://git@github.com:lbdremy/jsdom.git",
-      "request": "1.9.x",
+      "request": "2.9.x",
       "cheerio" : "0.4.x"
     },
     "devDependencies": {
