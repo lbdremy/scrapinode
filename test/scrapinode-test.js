@@ -40,13 +40,13 @@ suite.addBatch({
             assert.instanceOf(scraper,Scraper);
          },
          'should give a Scraper object able to retrieve the title of the page' : function(err,scraper){
-            assert.isString(scraper.get('title'));
+            assertStringNotEmpty(scraper.get('title'));
          },
          'should give a Scraper object able to retrieve a description of the page' : function(err,scraper){
-            assert.isArray(scraper.get('description'));
+            assertArrayNotEmpty(scraper.get('description'));
          },
          'should give a Scraper object able to retrieve images of the page' : function(err,scraper){
-            assert.isArray(scraper.get('images'));
+            assertArrayNotEmpty(scraper.get('images'));
          }
       },
       'to grab relevant elements in the HTML page thanks to its url using a specific scrapule determined by the domain' : {
@@ -61,16 +61,18 @@ suite.addBatch({
             assert.instanceOf(scraper,Scraper);
          },
          'should give a Scraper object able to retrieve the title of the page' : function(err,scraper){
-            assert.isString(scraper.get('title'));
+            assertStringNotEmpty(scraper.get('title'));
          },
          'should give a Scraper object able to retrieve a description of the page' : function(err,scraper){
-            assert.isArray(scraper.get('description'));
+            assertArrayNotEmpty(scraper.get('description'));
          },
          'should give a Scraper object able to retrieve images of the page' : function(err,scraper){
-            assert.isArray(scraper.get('images'));
+            assertArrayNotEmpty(scraper.get('images'));
          },
          'should give a Scraper object able to retrieve the price of the product' : function(err,scraper){
-            assert.match(scraper.get('price'),/([0-9,]{1,}(\.?[0-9]{1,}))/)
+            var price = scraper.get('price');
+            assert.isNotEmpty(price);
+            assert.match(price,/([0-9,]{1,}(\.?[0-9]{1,}))/)
          }
       },
       'to grab relevant elements in the HTML page where the link given point to an image.' : {
@@ -84,7 +86,7 @@ suite.addBatch({
             assert.instanceOf(scraper,Scraper);
          },
          'should give a Scraper object able to retrieve images of the page' : function(err,scraper){
-            assert.isArray(scraper.get('images'));
+            assertArrayNotEmpty(scraper.get('images'));
          },
       },
       'to grab relevant elements in the HTML page where the HTTP-REFRESH meta tag must be followed' : {
@@ -95,15 +97,24 @@ suite.addBatch({
             assert.instanceOf(scraper,Scraper);
          },
          'should give a Scraper object able to retrieve the title of the page' : function(err,scraper){
-            assert.isString(scraper.get('title'));
-         },
-         'should give a Scraper object able to retrieve a description of the page' : function(err,scraper){
-            assert.isArray(scraper.get('description'));
+            assertStringNotEmpty(scraper.get('title'));
          },
          'should give a Scraper object able to retrieve images of the page' : function(err,scraper){
-            assert.isArray(scraper.get('images'));
+            assertArrayNotEmpty(scraper.get('images'));
          }
       }
    }
    
 }).export(module)
+
+// Macros
+
+function assertStringNotEmpty(title){
+   assert.isNotEmpty(title);
+   assert.isString(title);
+}
+
+function assertArrayNotEmpty(description){
+   assert.isNotEmpty(description);
+   assert.isArray(description);
+}
