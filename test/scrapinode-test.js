@@ -28,7 +28,7 @@ suite.addBatch({
    }
 }).addBatch({
    'Create a scraper' : {
-      'to scrap an HTML page thanks to its url' : {
+      'to grab relevant elements in the HTML page thanks to its url' : {
          topic : function(){
             scrapinode.init();
             scrapinode.createScraper(urlDefault,this.callback);
@@ -49,7 +49,7 @@ suite.addBatch({
             assert.isArray(scraper.get('images'));
          }
       },
-      'to scrap an HTML page thanks to its url using a specific scrapule determined by the domain name of the page' : {
+      'to grab relevant elements in the HTML page thanks to its url using a specific scrapule determined by the domain' : {
          topic : function(){
             scrapinode.use(pathScrapulesDir);
             scrapinode.createScraper(urlCultBeauty,this.callback)
@@ -73,7 +73,7 @@ suite.addBatch({
             assert.match(scraper.get('price'),/([0-9,]{1,}(\.?[0-9]{1,}))/)
          }
       },
-      'to scrap an HTML page created because the resource found with the link given is an image' : {
+      'to grab relevant elements in the HTML page where the link given point to an image.' : {
          topic : function(){
             scrapinode.createScraper(urlImage,this.callback)
          },
@@ -87,7 +87,7 @@ suite.addBatch({
             assert.isArray(scraper.get('images'));
          },
       },
-      'to scrap an HTML page with in it a HTTP-REFRESH meta tag' : {
+      'to grab relevant elements in the HTML page where the HTTP-REFRESH meta tag must be followed' : {
          topic : function(){
             scrapinode.createScraper(urlwithHTTPRefreshMeta,this.callback)
          },
