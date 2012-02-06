@@ -1,71 +1,96 @@
 # Scrapinode 
-Modular Scraper using Jquery and a plugin that allow you to use regex in your selectors.
+Modular Scraper
 
 [![](http://travis-ci.org/lbdremy/scrapinode.png)](http://travis-ci.org/#!/lbdremy/scrapinode)
 
 ##Features
-###Client
+###Clients
    - Implicit routing using domain name and content-type name.
-   - Possibility to add extensions for a better scrapping.
+   - Possibility to add extensions named scrapules for a better scrapping.
    - Lazy loading of these extensions
    
 ###Developers
    - Create your own scrap function for specific domain name and specific content.
    
 ##Install
-    `npm install scrapinode`
-    
-##Get Started
-    var scrapinode = require('scrapinode');
-    scrapinode.init(); // Add default scrapule to the set of scrapules. Look at default scrapule contained in /lib/scrapules
-    
-    scrapinode.use( __dirname + '/path/to/my/personal/scrapules/'); // Add a scrapule (a scrapule is a set of extractor) an absolute path is required
-    
-    // Scrap the awesome video page of Norman on YouTube
-    var url = 'http://www.youtube.com/user/NormanFaitDesVideos';
-    scrapinode.createScraper(url ,function(err,scraper){
-      if(err){ 
-         console.log(err);
-      }else{
-         var images = scraper.get('images');
-         var videos = scraper.get('videos');
-         var title = scraper.get('title');
-         var description = scraper.get('description');
-       }
-    });
-    
-    // Scrap an amazon product
-    var url = 'http://www.youtube.com/user/NormanFaitDesVideos';
-    scrapinode.createScraper(url ,function(err,scraper){
-      if(err){ 
-         console.log(err);
-      }else{
-         var images = scraper.get('images');
-         var videos = scraper.get('videos');
-         var title = scraper.get('title');
-         var description = scraper.get('description');
-       }
-    });
-    
-##Create your own scrap(mod)ule
 
-    var scrapVideos = function($,url){
-      var videos = [];
-      //scrap stuff with Jquery
-      $('video').each(function(){
-         ...
-      }
-      return videos;
+```
+npm install scrapinode
+``` 
+##Get Started
+
+```js
+ var scrapinode = require('scrapinode');
+ // Load the default `Scrapule` into the set of scrapules available for scrapinode. 
+ // Look at the default scrapule contained in /lib/scrapules/default.js to know more about this scrapule.
+ scrapinode.init(); 
+ 
+ // Load a set of `Scrapule` into scrapinode contained in the scrapules folder (a scrapule is a set of extractors)
+ // An absolute path is required in argument.
+ scrapinode.use( __dirname + '/path/to/my/personal/scrapules/'); 
+ 
+ // Scrap the awesome video page of Norman on YouTube
+ var url = 'http://www.youtube.com/user/NormanFaitDesVideos';
+ scrapinode.createScraper(url ,function(err,scraper){
+   if(err){ 
+      console.log(err);
+   }else{
+      var images = scraper.get('images');
+      var videos = scraper.get('videos');
+      var title = scraper.get('title');
+      var description = scraper.get('description');
     }
-   
-    // You can expose object/array of extractors. An extractor is an object having two specifics properties: route {string}(pattern: `site#content`) and operation {function}. 
-    // exports = [{ route : 'site#videos' , operation : scrapVideos }, {...}];
-    exports = { route : 'site#videos' , operation : scrapVideos };
+ });
+ 
+ // Scrap an amazon product
+ var url = 'http://www.amazon.co.uk/gp/product/B005PVOMTO/ref=s9_simh_gw_p63_d0_g63_i3?pf_rd_m=A3P5ROKL5A1OLE&pf_rd_s=center-2&pf_rd_r=1AR79J0XVRX6B58D60Y1&pf_rd_t=101&pf_rd_p=467128533&pf_rd_i=468294';
+ scrapinode.createScraper(url ,function(err,scraper){
+   if(err){ 
+      console.log(err);
+   }else{
+      var images = scraper.get('images');
+      var videos = scraper.get('videos');
+      var title = scraper.get('title');
+      var description = scraper.get('description');
+    }
+ });
+```    
+##Create your own scrap[mod]ule
+A `Scrapule` is an `Object` more particularly an `Array` implementing the following interface:
+
+```js
+// Create your scrapule
+var scrapule = [
+   {
+      route : 'domain#contentType1',
+      operation : function(url,$){ }
+   },
+   {
+      route : 'domain#contentType2',
+      operation : function(url,$){ }
+   },
+   {
+      route : 'domain#contentType3',
+      operation : function(url,$){ }
+   },
+   {
+      route : 'domain#contentType4',
+      operation : function(url,$){ }
+   }
+];
+
+// Expose it
+module.exports = scrapule;
+
+```
+
+Have a look to the default scrapule in the file [`/lib/scrapules/default.js`](https://github.com/lbdremy/scrapinode/blob/master/lib/scrapules/default.js) if you want to know more.
 
 ##Test
 
-`npm test`
-
+```
+npm test
+```
 ##Contributions
 Contributions, suggestions, comments, issues are welcome.
 
