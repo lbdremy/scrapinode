@@ -7,7 +7,7 @@
     "name": "scrapinode",
     "main": "./main.js",
     "description": "Modular scraper using Jquery and a plugin that allow you to use regex in your selector.",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "repository": {
       "type": "git",
       "url": "https://github.com/lbdremy/scrapinode"
