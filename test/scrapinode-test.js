@@ -102,6 +102,25 @@ suite.addBatch({
          'should give a Scraper object able to retrieve images of the page' : function(err,scraper){
             assertArrayNotEmpty(scraper.get('images'));
          }
+      },
+      'to grab relevant elements in the HTML page given in argument' : {
+         topic : function(){
+            var html = '<!DOCTYPE html><html><head><title>Blabla.com</title></head><body><img src="http://blabla.com/favicon.ico"/></body></html>';
+            scrapinode.createScraper(html,this.callback);
+         },
+         'should give a Scraper object' : function(err,scraper){
+            assert.instanceOf(scraper,Scraper);
+         },
+         'should give a Scraper object able to retrieve the title of the page' : function(err,scraper){
+            var title = scraper.get('title');
+            assertStringNotEmpty(title);
+            assert.deepEqual(title,'Blabla.com');
+         },
+         'should give a Scraper object able to retrieve images of the page' : function(err,scraper){
+            var images = scraper.get('images');
+            assertArrayNotEmpty(images);
+            assert.deepEqual(images, ['http://blabla.com/favicon.ico'])
+         }
       }
    }
    
