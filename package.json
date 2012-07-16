@@ -13,7 +13,7 @@
       "url": "https://github.com/lbdremy/scrapinode"
     },
     "engines": {
-      "node": ">=0.4.x <0.7.x"
+      "node": ">=0.4.x <=0.8.x"
     },
     "dependencies": {
       "jsdom": "0.2.x",
