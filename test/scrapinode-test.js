@@ -12,7 +12,7 @@ var suite = vows.describe('Scrapinode');
 // Elements for the test suite
 var pathScrapulesDir = __dirname + '/scrapules/';
 var urlDefault = 'http://www.comet.co.uk/p/Plasma-TVs/buy-LG-42PT353-Plasma-TV/721050';
-var urlCultBeauty = 'http://www.cultbeauty.co.uk/clarisonic/clarisonic-plus_sonic_skin_cleansing_system.php';
+var urlCultBeauty = 'http://www.cultbeauty.co.uk/hair-care/hair-scalp-treatments/moroccanoil-light-oil-treatment.html';
 var urlImage = 'http://ecx.images-amazon.com/images/I/51RRbTkbfBL._SL500_AA300_.jpg';
 var urlwithHTTPRefreshMeta = 'http://www.windowsphone.com/en-US/apps/82a23635-5bd9-df11-a844-00237de2db9e';
 
@@ -54,7 +54,7 @@ suite.addBatch({
             scrapinode.use(pathScrapulesDir);
             scrapinode.createScraper(urlCultBeauty,this.callback)
          },
-         'should happen without error' : function(err,scraper){
+         'should happen without error' : function(err,scraper){ 
             assert.isNull(err);
          },
          'should give a Scraper object' : function(err,scraper){
