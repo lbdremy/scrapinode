@@ -5,11 +5,11 @@
 var scrapinode = require('./../');
 
 // Define an operation for a specific route and content
-scrapinode.use('society6.com','title',function(window,next){
+scrapinode.use('society6.com','title',function(window){
   var $ = window.$;
-  var url = window.url; // maybe you want to check for some reasons 
+  var url = window.location.href; // maybe you want to check for some reasons
   var title = $('h1[itemprop="name"]').text();
-  if(!title) return next();
+  if(!title) return null;
   return title;
 });
 
