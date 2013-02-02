@@ -1,6 +1,6 @@
 # scrapinode - content driven and route based scraper
 
-[![](http://travis-ci.org/lbdremy/scrapinode.png)](http://travis-ci.org/#!/lbdremy/scrapinode)  
+[![](https://api.travis-ci.org/lbdremy/scrapinode.png)](http://travis-ci.org/#!/lbdremy/scrapinode)
 
 ## Install
 
@@ -16,7 +16,7 @@ var scrapinode = require('scrapinode');
 // Define an operation for a specific route and content
 scrapinode.use('society6.com','title',function(window,next){
   var $ = window.$;
-  var url = window.url; // maybe you want to check for some reasons 
+  var url = window.url; // maybe you want to check for some reasons
   var title = $('h1[itemprop="name"]').text();
   if(!title) return next();
   return title;
