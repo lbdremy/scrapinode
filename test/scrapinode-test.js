@@ -11,27 +11,25 @@ var mocha = require('mocha'),
 // Test suite
 
 describe('scrapinode',function(){
-	describe('#use()',function(){
-		it('should add the given path,content and operation as a new route',function(done){
-			// Route that catchs everything
-			scrapinode.use('*','*',function(window,next){
-				return 'Goooogle it cannot find anything!';
-			});
-			scrapinode.createScraper('http://google.com',function(err,scraper){
-				assert.isNull(err);
-				assert.isObject(scraper);
-				assert.equal(scraper.get('anything'),'Goooogle it cannot find anything!');
-				done();
-			});
-		});
+	describe('#createScraper(url,callback)',function(){
+		it('should create a scraper for the page retrieved at the given url');
 	});
-	describe('#useAll()',function(){
+	describe('#use({String} path, {String} content, {Function} operation)',function(){
+		it('should use the given path,content and operation as a new route');
+	});
+	describe('#use({RegExp} path, {RegExp} content, {Function} operation)',function(){
+		it('should use the given path,content and operation as a new route');
+	});
+	describe('#use("*", "*", {Function} operation)',function(){
+		it('should use the given path "*" ,content "*" and operation as a new route to catch all paths and contents asked');
+	});
+	describe('#useAll(routes)',function(){
 		it('should add all routes given');
 	});
-	describe('#createScraper()',function(){
-		it('should create a scraper for the page reached at the given url');
+	describe('#use() or #useAll()',function(){
+		it('should add the routes in the router ensuring the first route added is the first hit when browsering routes to retrieve a content if the path matchs obviously');
 	});
 	describe('#defaults()',function(){
-		it('should return the routes to retrieve generic content from web pages like title,descriptions,images, videos');
+		it('should return the routes to retrieve generic content from web pages e.g title, descriptions, images and videos');
 	});
 });
