@@ -80,27 +80,76 @@ function runTestSuite(engine){
 		});
 		describe('and scraping by following the Schema.org specifications',function(){
 			describe('#get("title")',function(){
-				it('should retrieve the text representating the title');
+				it('should retrieve the text representating the title',function(done){
+					scrapinode.useAll(scrapinode.defaults());
+					scrapinode.createScraper('http://localhost:1102/page-schema-org.html',function(err,scraper){
+						assert.isNull(err);
+						assert.equal(scraper.get('title'),'Call of Duty: Modern Warfare III');
+						done();
+					});
+				});
 			});
 			describe('#get("descriptions")',function(){
-				it('should retrieve a list of text representating the descriptions');
+				it('should retrieve a list of text representating the descriptions',function(done){
+					scrapinode.useAll(scrapinode.defaults());
+					scrapinode.createScraper('http://localhost:1102/page-schema-org.html',function(err,scraper){
+						assert.isNull(err);
+						assert.deepEqual(scraper.get('descriptions'),['First Person Shooter game available on consoles and PCs.']);
+						done();
+					});
+				});
 			});
 			describe('#get("images")',function(){
-				it('should retrieve a list of images url');
+				it('should retrieve a list of images url',function(done){
+					scrapinode.useAll(scrapinode.defaults());
+					scrapinode.createScraper('http://localhost:1102/page-schema-org.html',function(err,scraper){
+						assert.isNull(err);
+						assert.deepEqual(scraper.get('images'),['http://www.journaldugamer.com/files/2011/11/mw3-header.jpg']);
+						done();
+					});
+				});
 			});
 		});
 		describe('and scraping by searching the generic html tags',function(){
 			describe('#get("title")',function(){
-				it('should retrieve the text representating the title');
+				it('should retrieve the text representating the title',function(done){
+					scrapinode.useAll(scrapinode.defaults());
+					scrapinode.createScraper('http://localhost:1102/page-generic-tags.html',function(err,scraper){
+						assert.isNull(err);
+						assert.equal(scraper.get('title'),'generic tags page');
+						done();
+					});
+				});
 			});
 			describe('#get("descriptions")',function(){
-				it('should retrieve a list of text representating the descriptions');
+				it('should retrieve a list of text representating the descriptions',function(done){
+					scrapinode.useAll(scrapinode.defaults());
+					scrapinode.createScraper('http://localhost:1102/page-generic-tags.html',function(err,scraper){
+						assert.isNull(err);
+						assert.deepEqual(scraper.get('descriptions'),['description of the generics tag page']);
+						done();
+					});
+				});
 			});
 			describe('#get("images")',function(){
-				it('should retrieve a list of images url');
+				it('should retrieve a list of images url',function(done){
+					scrapinode.useAll(scrapinode.defaults());
+					scrapinode.createScraper('http://localhost:1102/page-generic-tags.html',function(err,scraper){
+						assert.isNull(err);
+						assert.deepEqual(scraper.get('images'),['http://localhost/img1.png','http://localhost/img2.png']);
+						done();
+					});
+				});
 			});
 			describe('#get("videos")',function(){
-				it('should retrieve a list of videos [urls or html representations of the videos]');
+				it('should retrieve a list of videos [urls or html representations of the videos]',function(done){
+					scrapinode.useAll(scrapinode.defaults());
+					scrapinode.createScraper('http://localhost:1102/page-generic-tags.html',function(err,scraper){
+						assert.isNull(err);
+						assert.deepEqual(scraper.get('videos'),['http://localhost:1102/videofile.ogg','http://localhost:1102/movie.mov']);
+						done();
+					});
+				});
 			});
 		});
 	});
