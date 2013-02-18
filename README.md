@@ -1,6 +1,6 @@
 # scrapinode - content driven and route based scraper
 
-[![](https://api.travis-ci.org/lbdremy/scrapinode.png)](http://travis-ci.org/#!/lbdremy/scrapinode)
+[![](https://secure.travis-ci.org/lbdremy/scrapinode.png)](http://travis-ci.org/#!/lbdremy/scrapinode)
 
 ## Install
 
