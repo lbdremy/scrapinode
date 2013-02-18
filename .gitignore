@@ -3,3 +3,5 @@ old_test
 old_examples
 report
 old_report/
+test/http-destroy-end.js
+coverage.html
