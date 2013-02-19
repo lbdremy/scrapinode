@@ -25,6 +25,10 @@ app.get('/page2.html',function(req,res){
 	req.pipe(filed(__dirname + '/resources/page2.html')).pipe(res);
 });
 
+app.get('/page-empty.html',function(req,res){
+	req.pipe(filed(__dirname + '/resources/page-empty.html')).pipe(res);
+});
+
 app.listen(3030);
 
 // Test suite
@@ -162,6 +166,30 @@ describe('scrapinode',function(){
 				assert.equal(route.path,'*');
 				assert.isString(route.content);
 				assert.isFunction(route.operation);
+			});
+		});
+	});
+	describe('#createScraper({ url : "http://localhost:3030", engine :"mydreamengine"},callback)',function(){
+		it('should return a ̀ScrapinodeError` in the callback as first argument',function(done){
+			var options = {
+				url : 'http://localhost:3030',
+				engine : 'mydreamengine'
+			}
+			scrapinode.createScraper(options,function(err,scraper){
+				assert.instanceOf(err,ScrapinodeError);
+				assert.equal(err.message,'The engine "mydreamengine" is not supported. Scrapinode only supports jsdom and cheerio.')
+				assert.isUndefined(scraper);
+				done();
+			});
+		});
+	});
+	describe('#createScraper("http://localhost:3030/page-empty.html",callback)',function(){
+		it('should return a ̀ScrapinodeError` in the callback as first argument',function(done){
+			scrapinode.createScraper('http://localhost:3030/page-empty.html',function(err,scraper){
+				assert.instanceOf(err,ScrapinodeError);
+				assert.equal(err.message,'The HTTP response contains an empty body: ""')
+				assert.isUndefined(scraper);
+				done();
 			});
 		});
 	});
