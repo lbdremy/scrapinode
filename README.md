@@ -16,7 +16,7 @@ var scrapinode = require('scrapinode');
 // Define an operation for a specific route and content
 scrapinode.use('society6.com','title',function(window){
   var $ = window.$;
-  var url = window.location.href; // maybe you want to check for some reasons
+  var url = window.location.href; // url of the page maybe you want to check for some reasons
   var title = $('h1[itemprop="name"]').text();
   if(!title) return null;
   return title;
@@ -38,11 +38,17 @@ scrapinode.createScraper('http://society6.com/product/Sounds-Good-Dude_T-shirt',
 npm test
 ```
 
+## Test coverage
+
+```sh
+make coverage
+```
+
 ## Licence
 
 (The MIT License)
 
-Copyright (c) 2012 Rémy Loubradou
+Copyright (c) 2013 Rémy Loubradou
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
