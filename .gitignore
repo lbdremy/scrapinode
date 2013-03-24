@@ -5,4 +5,3 @@ report
 old_report/
 test/http-destroy-end.js
 coverage.html
-index.html
