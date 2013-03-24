@@ -5,4 +5,8 @@
  * MIT Licensed
  */
 
+/**
+ * Expose the scrapinode library
+ */
+
 module.exports = require('./lib/scrapinode');

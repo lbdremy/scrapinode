@@ -4,13 +4,13 @@
 
 ## Install
 
-```sh
+```bash
 npm install scrapinode
 ```
 
 ## Usage
 
-```js
+```javascript
 var scrapinode = require('scrapinode');
 
 // Define an operation for a specific route and content
@@ -34,13 +34,13 @@ scrapinode.createScraper('http://society6.com/product/Sounds-Good-Dude_T-shirt',
 
 ## Test
 
-```sh
+```bash
 npm test
 ```
 
 ## Test coverage
 
-```sh
+```bash
 make coverage
 ```
 

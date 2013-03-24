@@ -6,12 +6,21 @@
   },
   "name": "scrapinode",
   "main": "./index.js",
-  "description": "",
+  "description": "content driven and route based scraper",
   "version": "0.0.13",
   "repository": {
     "type": "git",
     "url": "git@github.com:lbdremy/scrapinode.git"
   },
+  "keywords" :[
+    "scraper",
+    "dom",
+    "manipulation",
+    "crawler",
+    "jquery",
+    "cheerio",
+    "jsdom"
+  ],
   "dependencies": {
     "jsdom": "~0.3.4",
     "cheerio": "~0.10.5",
@@ -26,5 +35,6 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/_mocha --reporter spec test/*-test.js"
-  }
+  },
+  "license" : "MIT"
 }
