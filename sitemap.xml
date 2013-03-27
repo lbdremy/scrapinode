@@ -6,12 +6,7 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>http://lbdremy.github.com/scrapinode/</loc>
-  <lastmod>2013-03-24T23:04:36+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>http://lbdremy.github.com/scrapinode/index.html</loc>
-  <lastmod>2013-03-24T23:04:36+00:00</lastmod>
+  <lastmod>2013-03-27T14:29:02+00:00</lastmod>
   <changefreq>weekly</changefreq>
 </url>
 </urlset>
