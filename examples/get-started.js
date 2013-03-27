@@ -1,19 +1,9 @@
 /**
- * Module dependencies
+ * Get started
  */
 
 var scrapinode = require('./../');
 
-// Define an operation for a specific route and content
-scrapinode.use('society6.com','title',function(window){
-  var $ = window.$;
-  var url = window.location.href; // maybe you want to check for some reasons
-  var title = $('h1[itemprop="name"]').text();
-  if(!title) return null;
-  return title;
-});
-
-// Use default operations for content like "title", "descriptions", "images", "videos"
 scrapinode.useAll(scrapinode.defaults());
 
 scrapinode.createScraper('http://society6.com/product/Sounds-Good-Dude_T-shirt',function(err,scraper){

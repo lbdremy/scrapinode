@@ -2,6 +2,20 @@
 
 [![](https://secure.travis-ci.org/lbdremy/scrapinode.png)](http://travis-ci.org/#!/lbdremy/scrapinode) [![Dependency Status](https://gemnasium.com/lbdremy/scrapinode.png)](https://gemnasium.com/lbdremy/scrapinode)
 
+## When use it?
+
+When you want to retrieve information about the page pointed by the URL that your user has just copied, scrapinode is a great fit.
+First scrapinode comes out of the box with a great feature of 1 line of code, that will give you the title, the description and the images of any HTML page on the web.
+Second if you need more, you can extend it. See the examples to know more about it.
+
+## Features
+
+- Retrieve content like "title", "descriptions", "images", "videos" on any HTML pages with 1 line of code.
+- Define specific operations based on the url of the page and the content you hope retrieve with regex.
+- Scrape pages with jsdom + jquery or with cheerio.
+- The HTTP client takes care to handle HTTP and HTML redirections.
+- Scrape image like it was a HTML page.
+
 ## Install
 
 ```bash
