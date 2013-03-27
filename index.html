@@ -3,7 +3,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 <h1 class="module-name">scrapinode</h1>
 <p><b class="module-description">content driven and route based scraper</b></p>
 <p><span class="module-version">version 0.1.0-beta</span>&nbsp;<span class="module-author">by Remy Loubradou</span>&nbsp;<span class="module-licence">licensed under MIT</span>
-</p><div style="vertical-align: baseline" class="social-buttons"><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=watch&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=fork&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><a href="https://twitter.com/share" data-text="Check out scrapinode, content driven and route based scraper" data-via="lbdremy" data-lang="en" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></script></div></header><br><nav><ul><li><a href="#install">Install</a></li><li><a href="#usage">Usage</a></li><li><a href="#test">Test</a></li><li><a href="#test-coverage">Test coverage</a></li><li><a href="#code-documentation">Code documentation</a></li><ul><li><a href="#index.js">index.js</a></li><li><a href="#lib/router.js">lib/router.js</a></li><li><a href="#lib/scrapinode.js">lib/scrapinode.js</a></li><li><a href="#lib/scraper.js">lib/scraper.js</a></li><li><a href="#lib/route.js">lib/route.js</a></li><li><a href="#lib/browser.js">lib/browser.js</a></li><li><a href="#lib/utils/index.js">lib/utils/index.js</a></li><li><a href="#lib/error/scrapinode-error.js">lib/error/scrapinode-error.js</a></li><li><a href="#lib/defaults/index.js">lib/defaults/index.js</a></li></ul><li><a href="#licence">Licence</a></li></ul></nav></div></div><div class="col-9-12"><div class="markdown-body"><article><section id="readme">
+</p><div style="vertical-align: baseline" class="social-buttons"><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=watch&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=fork&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><a href="https://twitter.com/share" data-text="Check out scrapinode, content driven and route based scraper" data-via="lbdremy" data-lang="en" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></script></div><br><b>Status:</b><div class="badges"><a href="http://travis-ci.org/#!/lbdremy/scrapinode" rel="nofollow"><img src="https://secure.travis-ci.org/lbdremy/scrapinode.png" alt="Build Status"/></a>&nbsp;<a href="https://gemnasium.com/lbdremy/scrapinode" rel="nofollow"><img src="https://gemnasium.com/lbdremy/scrapinode.png" alt="Dependency Status"/></a>&nbsp;</div></header><br><nav><ul><li><a href="#install">Install</a></li><li><a href="#usage">Usage</a></li><li><a href="#test">Test</a></li><li><a href="#test-coverage">Test coverage</a></li><li><a href="#code-documentation">Code documentation</a></li><ul><li><a href="#index.js">index.js</a></li><li><a href="#lib/router.js">lib/router.js</a></li><li><a href="#lib/scrapinode.js">lib/scrapinode.js</a></li><li><a href="#lib/scraper.js">lib/scraper.js</a></li><li><a href="#lib/route.js">lib/route.js</a></li><li><a href="#lib/browser.js">lib/browser.js</a></li><li><a href="#lib/defaults/index.js">lib/defaults/index.js</a></li><li><a href="#lib/utils/index.js">lib/utils/index.js</a></li><li><a href="#lib/error/scrapinode-error.js">lib/error/scrapinode-error.js</a></li></ul><li><a href="#licence">Licence</a></li></ul></nav></div></div><div class="col-9-12"><div class="markdown-body"><article><section id="readme">
 
 <h2 id="install">Install</h2>
 <pre><code class="language-bash">npm install scrapinode</code></pre>
@@ -530,136 +530,6 @@ scrapinode.createScraper(<span class="string">'http://society6.com/product/Sound
   <ul>
     <li>{Boolean} </li>
   </ul>
-</p><h3 alt="lib/utils/index.js" id="lib/utils/index.js">lib/utils/index.js</h3>
-<h4 id="url-=-require(&apos;url&apos;),">url = require('url'),</h4>
-<div><p>Module dependencies</p>
-</div><br>
-<pre><code class="language-javascript"><span class="keyword">var</span> url = require(<span class="string">'url'</span>),
-   domains = require(<span class="string">'./domains'</span>);</code></pre>
-<h4 id="exports.isurl(path)">exports.isURL(path)</h4>
-<div><p>Check if the given <code>path</code> is an URL</p>
-</div><br>
-<pre><code class="language-javascript">exports.isURL = <span class="function"><span class="keyword">function</span> <span class="title">isURL</span><span class="params">(path)</span> {</span>
-   <span class="keyword">var</span> regex = <span class="regexp">/(https?:)?\/\/([\-\w\.]+)+/i</span>;
-   <span class="keyword">return</span> regex.test(path);
-};</code></pre>
-<p><b>Parameters:</b><br>
-  <ul>
-    <li>path {String} -</li>
-  </ul>
-</p>
-<p><b>Returns:</b><br>
-  <ul>
-    <li>{Boolean} </li>
-  </ul>
-</p>
-<h4 id="exports.tourl(path,uri)">exports.toURL(path,uri)</h4>
-<div><p>Convert a relative/absolute path into an URL</p>
-</div><br>
-<pre><code class="language-javascript">exports.toURL = <span class="function"><span class="keyword">function</span> <span class="title">toURL</span><span class="params">(path,uri)</span>{</span>
-   <span class="keyword">var</span> absolutePath = path;
-   <span class="keyword">if</span>(!exports.isURL(path)){
-      <span class="keyword">var</span> explodeURL = url.parse(uri);
-      <span class="comment">// 2 cases: absolute path and relative path to the current pathname</span>
-      <span class="keyword">if</span>( path.charAt(<span class="number">0</span>) === <span class="string">'/'</span>){
-         absolutePath = explodeURL.protocol + <span class="string">'//'</span> + explodeURL.host + path;
-      }<span class="keyword">else</span>{
-         <span class="keyword">var</span> explodePathname = explodeURL.pathname.split(<span class="string">'/'</span>);
-         <span class="keyword">var</span> pathname = explodePathname.slice(<span class="number">0</span>,explodePathname.length - <span class="number">1</span>).join(<span class="string">'/'</span>);
-         absolutePath = explodeURL.protocol + <span class="string">'//'</span> + (explodeURL.host + <span class="string">'/'</span> +pathname + <span class="string">'/'</span> + path).replace(<span class="string">'\/\/'</span>,<span class="string">'/'</span>,<span class="string">'g'</span>);
-      }
-   }
-   <span class="keyword">return</span> absolutePath;
-};</code></pre>
-<p><b>Parameters:</b><br>
-  <ul>
-    <li>path {String} - relative/absolute path to a resource</li>
-    <li>uri {String} - url</li>
-  </ul>
-</p>
-<p><b>Returns:</b><br>
-  <ul>
-    <li>{String} </li>
-  </ul>
-</p>
-<h4 id="exports.inline(text)">exports.inline(text)</h4>
-<div><p>Inline the text, remove characters &quot;/n&quot; and &quot; &quot; (space)</p>
-</div><br>
-<pre><code class="language-javascript">exports.inline = <span class="function"><span class="keyword">function</span> <span class="title">inline</span><span class="params">(text)</span>{</span>
-   <span class="keyword">var</span> explode = text.split(<span class="string">'\n'</span>).join(<span class="string">''</span>).split(<span class="string">' '</span>);
-   <span class="keyword">var</span> size = explode.length;
-   <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; size ; i++){
-      <span class="keyword">if</span>(!explode[i]){
-         explode.splice(i,<span class="number">1</span>);
-         i--;
-         size--;
-      }
-   }
-   <span class="keyword">return</span> explode.join(<span class="string">' '</span>).trim();
-};</code></pre>
-<p><b>Parameters:</b><br>
-  <ul>
-    <li>text {String} -</li>
-  </ul>
-</p>
-<p><b>Returns:</b><br>
-  <ul>
-    <li>{String} </li>
-  </ul>
-</p>
-<h4 id="exports.getwebsitename(uri)">exports.getWebsiteName(uri)</h4>
-<div><p>Get the name of the website from an uri</p>
-</div><br>
-<pre><code class="language-javascript">exports.getWebsiteName = <span class="function"><span class="keyword">function</span> <span class="title">getWebsiteName</span><span class="params">(uri)</span>{</span>
-   <span class="keyword">var</span> hostname = url.parse(uri).hostname;
-   <span class="keyword">var</span> name = <span class="string">''</span>;
-   <span class="keyword">if</span>(hostname){
-      <span class="keyword">var</span> subdomains = domains;
-      <span class="keyword">var</span> components = hostname.split(<span class="string">'.'</span>);
-      <span class="keyword">for</span>(<span class="keyword">var</span> i = components.length -<span class="number">1</span> ; i &gt;=  <span class="number">0</span>; i-- ){
-         <span class="keyword">if</span>(subdomains[components[i]]){
-            subdomains = subdomains[components[i]];
-         }<span class="keyword">else</span>{
-            name = components[i];
-            <span class="keyword">break</span>;
-         }
-      }
-   }
-   <span class="keyword">return</span> name;
-};</code></pre>
-<p><b>Parameters:</b><br>
-  <ul>
-    <li>uri {String} </li>
-  </ul>
-</p>
-<p><b>Returns:</b><br>
-  <ul>
-    <li>{String} - name of the website</li>
-  </ul>
-</p><h3 alt="lib/error/scrapinode-error.js" id="lib/error/scrapinode-error.js">lib/error/scrapinode-error.js</h3>
-<h4 id="util-=-require(&apos;util&apos;)">util = require('util')</h4>
-<div><p>Module dependencies</p>
-</div><br>
-<pre><code class="language-javascript"><span class="keyword">var</span> util = require(<span class="string">'util'</span>);</code></pre>
-<h4 id="module.exports-=-scrapinodeerror">module.exports = ScrapinodeError</h4>
-<div><p>Expose <code>ScrapinodeError</code></p>
-</div><br>
-<pre><code class="language-javascript">module.exports = ScrapinodeError;</code></pre>
-<h4 id="scrapinodeerror()">ScrapinodeError()</h4>
-<div><p>Create a new <code>ScrapinodeError</code></p>
-</div><br>
-<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">ScrapinodeError</span><span class="params">(message)</span>{</span>
-   Error.call(<span class="keyword">this</span>);
-   Error.captureStackTrace(<span class="keyword">this</span>,arguments.callee);
-   <span class="keyword">this</span>.name = <span class="string">'ScrapinodeError'</span>;
-   <span class="keyword">this</span>.message = message;
-}
-
-util.inherits(ScrapinodeError,Error);</code></pre>
-<p><b>Returns:</b><br>
-  <ul>
-    <li>{ScrapinodeError} </li>
-  </ul>
 </p><h3 alt="lib/defaults/index.js" id="lib/defaults/index.js">lib/defaults/index.js</h3>
 <h4 id="utils-=-require(&apos;./../utils/&apos;)">utils = require('./../utils/')</h4>
 <div><p>Module dependencies</p>
@@ -852,7 +722,137 @@ util.inherits(ScrapinodeError,Error);</code></pre>
    });
 
    <span class="keyword">return</span> thumbs;
-}</code></pre></section><section id="licence"><h2 id="licence">Licence</h2><p>(The MIT License)</p>
+}</code></pre><h3 alt="lib/utils/index.js" id="lib/utils/index.js">lib/utils/index.js</h3>
+<h4 id="url-=-require(&apos;url&apos;),">url = require('url'),</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> url = require(<span class="string">'url'</span>),
+   domains = require(<span class="string">'./domains'</span>);</code></pre>
+<h4 id="exports.isurl(path)">exports.isURL(path)</h4>
+<div><p>Check if the given <code>path</code> is an URL</p>
+</div><br>
+<pre><code class="language-javascript">exports.isURL = <span class="function"><span class="keyword">function</span> <span class="title">isURL</span><span class="params">(path)</span> {</span>
+   <span class="keyword">var</span> regex = <span class="regexp">/(https?:)?\/\/([\-\w\.]+)+/i</span>;
+   <span class="keyword">return</span> regex.test(path);
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>path {String} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Boolean} </li>
+  </ul>
+</p>
+<h4 id="exports.tourl(path,uri)">exports.toURL(path,uri)</h4>
+<div><p>Convert a relative/absolute path into an URL</p>
+</div><br>
+<pre><code class="language-javascript">exports.toURL = <span class="function"><span class="keyword">function</span> <span class="title">toURL</span><span class="params">(path,uri)</span>{</span>
+   <span class="keyword">var</span> absolutePath = path;
+   <span class="keyword">if</span>(!exports.isURL(path)){
+      <span class="keyword">var</span> explodeURL = url.parse(uri);
+      <span class="comment">// 2 cases: absolute path and relative path to the current pathname</span>
+      <span class="keyword">if</span>( path.charAt(<span class="number">0</span>) === <span class="string">'/'</span>){
+         absolutePath = explodeURL.protocol + <span class="string">'//'</span> + explodeURL.host + path;
+      }<span class="keyword">else</span>{
+         <span class="keyword">var</span> explodePathname = explodeURL.pathname.split(<span class="string">'/'</span>);
+         <span class="keyword">var</span> pathname = explodePathname.slice(<span class="number">0</span>,explodePathname.length - <span class="number">1</span>).join(<span class="string">'/'</span>);
+         absolutePath = explodeURL.protocol + <span class="string">'//'</span> + (explodeURL.host + <span class="string">'/'</span> +pathname + <span class="string">'/'</span> + path).replace(<span class="string">'\/\/'</span>,<span class="string">'/'</span>,<span class="string">'g'</span>);
+      }
+   }
+   <span class="keyword">return</span> absolutePath;
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>path {String} - relative/absolute path to a resource</li>
+    <li>uri {String} - url</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{String} </li>
+  </ul>
+</p>
+<h4 id="exports.inline(text)">exports.inline(text)</h4>
+<div><p>Inline the text, remove characters &quot;/n&quot; and &quot; &quot; (space)</p>
+</div><br>
+<pre><code class="language-javascript">exports.inline = <span class="function"><span class="keyword">function</span> <span class="title">inline</span><span class="params">(text)</span>{</span>
+   <span class="keyword">var</span> explode = text.split(<span class="string">'\n'</span>).join(<span class="string">''</span>).split(<span class="string">' '</span>);
+   <span class="keyword">var</span> size = explode.length;
+   <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; size ; i++){
+      <span class="keyword">if</span>(!explode[i]){
+         explode.splice(i,<span class="number">1</span>);
+         i--;
+         size--;
+      }
+   }
+   <span class="keyword">return</span> explode.join(<span class="string">' '</span>).trim();
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>text {String} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{String} </li>
+  </ul>
+</p>
+<h4 id="exports.getwebsitename(uri)">exports.getWebsiteName(uri)</h4>
+<div><p>Get the name of the website from an uri</p>
+</div><br>
+<pre><code class="language-javascript">exports.getWebsiteName = <span class="function"><span class="keyword">function</span> <span class="title">getWebsiteName</span><span class="params">(uri)</span>{</span>
+   <span class="keyword">var</span> hostname = url.parse(uri).hostname;
+   <span class="keyword">var</span> name = <span class="string">''</span>;
+   <span class="keyword">if</span>(hostname){
+      <span class="keyword">var</span> subdomains = domains;
+      <span class="keyword">var</span> components = hostname.split(<span class="string">'.'</span>);
+      <span class="keyword">for</span>(<span class="keyword">var</span> i = components.length -<span class="number">1</span> ; i &gt;=  <span class="number">0</span>; i-- ){
+         <span class="keyword">if</span>(subdomains[components[i]]){
+            subdomains = subdomains[components[i]];
+         }<span class="keyword">else</span>{
+            name = components[i];
+            <span class="keyword">break</span>;
+         }
+      }
+   }
+   <span class="keyword">return</span> name;
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>uri {String} </li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{String} - name of the website</li>
+  </ul>
+</p><h3 alt="lib/error/scrapinode-error.js" id="lib/error/scrapinode-error.js">lib/error/scrapinode-error.js</h3>
+<h4 id="util-=-require(&apos;util&apos;)">util = require('util')</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> util = require(<span class="string">'util'</span>);</code></pre>
+<h4 id="module.exports-=-scrapinodeerror">module.exports = ScrapinodeError</h4>
+<div><p>Expose <code>ScrapinodeError</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = ScrapinodeError;</code></pre>
+<h4 id="scrapinodeerror()">ScrapinodeError()</h4>
+<div><p>Create a new <code>ScrapinodeError</code></p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">ScrapinodeError</span><span class="params">(message)</span>{</span>
+   Error.call(<span class="keyword">this</span>);
+   Error.captureStackTrace(<span class="keyword">this</span>,arguments.callee);
+   <span class="keyword">this</span>.name = <span class="string">'ScrapinodeError'</span>;
+   <span class="keyword">this</span>.message = message;
+}
+
+util.inherits(ScrapinodeError,Error);</code></pre>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{ScrapinodeError} </li>
+  </ul>
+</p></section><section id="licence"><h2 id="licence">Licence</h2><p>(The MIT License)</p>
 <p>Copyright (c) 2013 Rémy Loubradou</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the &quot;Software&quot;), to deal
