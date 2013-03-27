@@ -3,7 +3,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 <h1 class="module-name">scrapinode</h1>
 <p><b class="module-description">content driven and route based scraper</b></p>
 <p><span class="module-version">version 0.1.0-beta</span>&nbsp;<span class="module-author">by Remy Loubradou</span>&nbsp;<span class="module-licence">licensed under MIT</span>
-</p><div style="vertical-align: baseline" class="social-buttons"><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=watch&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=fork&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><a href="https://twitter.com/share" data-text="Check out scrapinode, content driven and route based scraper" data-via="lbdremy" data-lang="en" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></script></div><br><b>Status:</b><div class="badges"><a href="http://travis-ci.org/#!/lbdremy/scrapinode" rel="nofollow"><img src="https://secure.travis-ci.org/lbdremy/scrapinode.png" alt="Build Status"/></a>&nbsp;<a href="https://gemnasium.com/lbdremy/scrapinode" rel="nofollow"><img src="https://gemnasium.com/lbdremy/scrapinode.png" alt="Dependency Status"/></a>&nbsp;</div></header><br><nav><ul><li><a href="#install">Install</a></li><li><a href="#usage">Usage</a></li><li><a href="#test">Test</a></li><li><a href="#test-coverage">Test coverage</a></li><li><a href="#code-documentation">Code documentation</a></li><ul><li><a href="#index.js">index.js</a></li><li><a href="#lib/router.js">lib/router.js</a></li><li><a href="#lib/scrapinode.js">lib/scrapinode.js</a></li><li><a href="#lib/scraper.js">lib/scraper.js</a></li><li><a href="#lib/route.js">lib/route.js</a></li><li><a href="#lib/browser.js">lib/browser.js</a></li><li><a href="#lib/defaults/index.js">lib/defaults/index.js</a></li><li><a href="#lib/utils/index.js">lib/utils/index.js</a></li><li><a href="#lib/error/scrapinode-error.js">lib/error/scrapinode-error.js</a></li></ul><li><a href="#licence">Licence</a></li></ul></nav></div></div><div class="col-9-12"><div class="markdown-body"><article><section id="readme">
+</p><div style="vertical-align: baseline" class="social-buttons"><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=watch&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=fork&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><a href="https://twitter.com/share" data-text="Check out scrapinode, content driven and route based scraper" data-via="lbdremy" data-lang="en" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></script></div><br><b>Status:</b><div class="badges"><a href="http://travis-ci.org/#!/lbdremy/scrapinode" rel="nofollow"><img src="https://secure.travis-ci.org/lbdremy/scrapinode.png" alt="Build Status"/></a>&nbsp;<a href="https://gemnasium.com/lbdremy/scrapinode" rel="nofollow"><img src="https://gemnasium.com/lbdremy/scrapinode.png" alt="Dependency Status"/></a>&nbsp;</div></header><br><nav><ul><li><a href="#install">Install</a></li><li><a href="#usage">Usage</a></li><li><a href="#test">Test</a></li><li><a href="#test-coverage">Test coverage</a></li><li><a href="#code-documentation">Code documentation</a></li><ul><li><a href="#index.js">index.js</a></li><li><a href="#lib/router.js">lib/router.js</a></li><li><a href="#lib/scrapinode.js">lib/scrapinode.js</a></li><li><a href="#lib/scraper.js">lib/scraper.js</a></li><li><a href="#lib/route.js">lib/route.js</a></li><li><a href="#lib/browser.js">lib/browser.js</a></li><li><a href="#lib/utils/index.js">lib/utils/index.js</a></li><li><a href="#lib/error/scrapinode-error.js">lib/error/scrapinode-error.js</a></li><li><a href="#lib/defaults/index.js">lib/defaults/index.js</a></li></ul><li><a href="#licence">Licence</a></li></ul></nav></div></div><div class="col-9-12"><div class="markdown-body"><article><section id="readme">
 
 <h2 id="install">Install</h2>
 <pre><code class="language-bash">npm install scrapinode</code></pre>
@@ -139,7 +139,7 @@ scrapinode.createScraper(<span class="string">'http://society6.com/product/Sound
   <span class="keyword">this</span>.engine = engine || <span class="string">'jsdom'</span>;
   <span class="keyword">this</span>.router = <span class="keyword">new</span> Router();
 };</code></pre>
-<h4 id="scrapinode.prototype.createscraper(options,[html=undefined],callback)">Scrapinode.prototype.createScraper(options,[html=undefined],callback)</h4>
+<h4 id="scrapinode.prototype.createscraper(options,callback)">Scrapinode.prototype.createScraper(options,callback)</h4>
 <div><p>Create a scraper for the given <code>url</code> with the given <code>engine</code></p>
 </div><br>
 <pre><code class="language-javascript">Scrapinode.prototype.createScraper = <span class="function"><span class="keyword">function</span> <span class="params">(options,callback)</span>{</span>
@@ -164,9 +164,9 @@ scrapinode.createScraper(<span class="string">'http://society6.com/product/Sound
   <ul>
     <li>options {String|Object} - url of the page or a set of options in this case options.url is mandatory</li>
     <li>options.url {String} - url of the page</li>
-    <li>[engine='this.engine'] {String} - name of the engine (jsdom or cheerio)</li>
-    <li>[html=undefined] {String} - HTML content</li>
-    <li>callback {Function} -</li>
+    <li>[options.engine=this.engine] {String} - name of the engine (jsdom or cheerio)</li>
+    <li>[options.html=undefined] {String} - HTML content</li>
+    <li>callback {Function} - call when the scraper is ready for work</li>
     <li>callback().err {Error} -</li>
     <li>callback().scraper {Scraper} -</li>
   </ul>
@@ -182,7 +182,7 @@ scrapinode.createScraper(<span class="string">'http://society6.com/product/Sound
   <ul>
     <li>path {String|RegExp} -</li>
     <li>content {String|RegExp} -</li>
-    <li>operation {Function} -</li>
+    <li>operation {Function} - function called when the path and the content match</li>
   </ul>
 </p>
 <p><b>Returns:</b><br>
@@ -240,7 +240,7 @@ scrapinode.createScraper(<span class="string">'http://society6.com/product/Sound
 <div><p>Expose <code>Scraper</code></p>
 </div><br>
 <pre><code class="language-javascript">module.exports = Scraper;</code></pre>
-<h4 id="scraper()">Scraper()</h4>
+<h4 id="scraper(url,window,router)">Scraper(url,window,router)</h4>
 <div><p><code>Scraper</code> class</p>
 </div><br>
 <pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">Scraper</span><span class="params">(url,window,router)</span>{</span>
@@ -248,8 +248,15 @@ scrapinode.createScraper(<span class="string">'http://society6.com/product/Sound
 	<span class="keyword">this</span>.window = window;
 	<span class="keyword">this</span>.router = router;
 }</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>url {String} -</li>
+    <li>window {Object} -</li>
+    <li>router {Router} -</li>
+  </ul>
+</p>
 <h4 id="scraper.prototype.get(content,[index])">Scraper.prototype.get(content,[index])</h4>
-<div><p>Get the given <code>content</code> from the <code>router</code></p>
+<div><p>Get the given <code>content</code> from the <code>this.router</code></p>
 </div><br>
 <pre><code class="language-javascript">Scraper.prototype.get = <span class="keyword">function</span>(content,index) {
 	<span class="keyword">if</span>(!index) index = <span class="number">0</span>;
@@ -266,7 +273,7 @@ scrapinode.createScraper(<span class="string">'http://society6.com/product/Sound
 </p>
 <p><b>Returns:</b><br>
   <ul>
-    <li>{*} </li>
+    <li>{String|Number|Object|Boolean|null|undefined} </li>
   </ul>
 </p><h3 alt="lib/route.js" id="lib/route.js">lib/route.js</h3>
 <h4 id="module.exports-=-route">module.exports = Route</h4>
@@ -513,11 +520,11 @@ scrapinode.createScraper(<span class="string">'http://society6.com/product/Sound
     <li>{Boolean} </li>
   </ul>
 </p>
-<h4 id="regeximage-=-/image\//i">regexImage = /image\//i</h4>
+<h4 id="isimage(headers)">isImage(headers)</h4>
 <div><p>Check if the content of the HTTP body is an image</p>
 </div><br>
-<pre><code class="language-javascript"><span class="keyword">var</span> regexImage = <span class="regexp">/image\//i</span>;
-<span class="function"><span class="keyword">function</span> <span class="title">isImage</span><span class="params">(headers)</span>{</span>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">isImage</span><span class="params">(headers)</span>{</span>
+    <span class="keyword">var</span> regexImage = <span class="regexp">/image\//i</span>;
     <span class="keyword">var</span> contentType = headers ?  headers[<span class="string">'content-type'</span>] : <span class="string">''</span>;
     <span class="keyword">return</span> regexImage.test(contentType);
 }</code></pre>
@@ -530,199 +537,7 @@ scrapinode.createScraper(<span class="string">'http://society6.com/product/Sound
   <ul>
     <li>{Boolean} </li>
   </ul>
-</p><h3 alt="lib/defaults/index.js" id="lib/defaults/index.js">lib/defaults/index.js</h3>
-<h4 id="utils-=-require(&apos;./../utils/&apos;)">utils = require('./../utils/')</h4>
-<div><p>Module dependencies</p>
-</div><br>
-<pre><code class="language-javascript"><span class="keyword">var</span> utils = require(<span class="string">'./../utils/'</span>);</code></pre>
-<h4 id="module.exports-=-exports-=-[">module.exports = exports = [</h4>
-<div><p>Expose</p>
-</div><br>
-<pre><code class="language-javascript">module.exports = exports = [
-   {
-      path : <span class="string">'*'</span>,
-      content : <span class="string">'descriptions'</span>,
-      operation : scrapDescription
-   },
-   {
-      path : <span class="string">'*'</span>,
-      content : <span class="string">'title'</span>,
-      operation : scrapTitle
-   },
-   {
-      path : <span class="string">'*'</span>,
-      content : <span class="string">'images'</span>,
-      operation : scrapImage
-   },
-   {
-      path : <span class="string">'*'</span>,
-      content : <span class="string">'videos'</span>,
-      operation : scrapVideo
-   }
-];
-
-<span class="function"><span class="keyword">function</span> <span class="title">scrapDescription</span><span class="params">(window)</span>{</span>
-   <span class="keyword">var</span> $ = window.$;
-   <span class="keyword">var</span> url = window.url;
-   <span class="keyword">var</span> descriptions = [];
-
-   <span class="comment">// Open Graph protocol by Facebook &lt;meta property="og:description" content="(*)"/&gt;</span>
-   $(<span class="string">'meta[property="og:description"]'</span>).each(<span class="keyword">function</span>(){
-      <span class="keyword">var</span> content = $(<span class="keyword">this</span>).attr(<span class="string">'content'</span>);
-      <span class="keyword">if</span>(content) descriptions.push(content);
-   });
-
-   <span class="comment">// Schema.org : &lt;* itemprop="description"&gt;(*)&lt;/*&gt;</span>
-   $(<span class="string">'[itemprop="description"]'</span>).each(<span class="keyword">function</span>(){
-      <span class="keyword">var</span> text = $(<span class="keyword">this</span>).text();
-      <span class="keyword">if</span>(text) descriptions.push(text);
-   });
-
-   <span class="comment">// Meta tag description: &lt;meta property="description" content="(*)" /&gt;</span>
-   $(<span class="string">'meta[name="description"]'</span>).each(<span class="keyword">function</span>(){
-      <span class="keyword">var</span> description = utils.inline($(<span class="keyword">this</span>).attr(<span class="string">'content'</span>)).trim();
-      <span class="keyword">if</span>(description) descriptions.push(description);
-   });
-
-   <span class="comment">// Random text in div and p tags. Oriented product informations</span>
-   <span class="keyword">if</span>(descriptions.length === <span class="number">0</span>){
-      $(<span class="string">'div,p'</span>).each(<span class="keyword">function</span>(){
-         <span class="keyword">if</span>( ($(<span class="keyword">this</span>).attr(<span class="string">'class'</span>) &amp;&amp; $(<span class="keyword">this</span>).attr(<span class="string">'class'</span>).toLowerCase() === <span class="string">'productdesc'</span>) || ($(<span class="keyword">this</span>).attr(<span class="string">'id'</span>) &amp;&amp; $(<span class="keyword">this</span>).attr(<span class="string">'id'</span>).toLowerCase() === <span class="string">'productdesc'</span>)){
-            <span class="keyword">var</span> description = utils.inline($(<span class="keyword">this</span>).text()).trim();
-            <span class="keyword">if</span>(description) descriptions.push(description);
-         }
-      });
-   }
-   <span class="keyword">return</span> descriptions;
-}</code></pre>
-<h4 id="enum_invalid_extensions-=-{">ENUM_INVALID_EXTENSIONS = {</h4>
-<div><p>Helpers for <code>scrapImage</code> function</p>
-</div><br>
-<pre><code class="language-javascript"><span class="keyword">var</span> ENUM_INVALID_EXTENSIONS = {
-   gif : <span class="literal">false</span>
-};
-
-<span class="function"><span class="keyword">function</span> <span class="title">isValidExtension</span><span class="params">(src)</span>{</span>
-   <span class="keyword">var</span> extension = src.split(<span class="string">'.'</span>).pop();
-   <span class="keyword">var</span> isValid = ENUM_INVALID_EXTENSIONS[extension] === <span class="literal">false</span> ? <span class="literal">false</span> : <span class="literal">true</span>;
-   <span class="keyword">return</span> isValid;
-}</code></pre>
-<h4 id="scrapimage()">scrapImage()</h4>
-<div></div><br>
-<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">scrapImage</span><span class="params">(window)</span>{</span>
-   <span class="keyword">var</span> $ = window.$;
-   <span class="keyword">var</span> url = window.url;
-
-   <span class="keyword">var</span> thumbs = [];
-   <span class="keyword">var</span> thumbsRejected = [];
-   <span class="keyword">var</span> title = scrapTitle(window);
-   <span class="keyword">var</span> addToThumbs = <span class="keyword">function</span>(image,beginning){
-      <span class="keyword">var</span> src = $(image).attr(<span class="string">'src'</span>);
-      <span class="keyword">if</span>(src &amp;&amp; isValidExtension(src) ){
-         src = utils.toURL(src,url);
-         <span class="keyword">if</span>(beginning){
-            thumbs.unshift(src);
-         }<span class="keyword">else</span>{
-            thumbs.push(src);
-         }
-      }<span class="keyword">else</span> <span class="keyword">if</span>(src){
-         thumbsRejected.push(src);
-      }
-   };
-   <span class="comment">// Open Graph protocol by Facebook: &lt;meta property="og:image" content="(*)"/&gt;</span>
-   $(<span class="string">'meta[property="og:image"]'</span>).each(<span class="keyword">function</span>(){
-      <span class="keyword">var</span> content = $(<span class="keyword">this</span>).attr(<span class="string">'content'</span>);
-      <span class="keyword">if</span>(content) thumbs.push(utils.toURL(content));
-   });
-
-   <span class="comment">// Schema.org: &lt;img itemprop="image" src="(*)"/&gt;</span>
-   $(<span class="string">'img[itemprop="image"]'</span>).each(<span class="keyword">function</span>(){
-      addToThumbs(<span class="keyword">this</span>);
-   });
-
-   <span class="comment">// Oriented product informations</span>
-   <span class="keyword">if</span>(thumbs.length &lt; <span class="number">1</span>){
-      $(<span class="string">'img[id*="product"]'</span>).each(<span class="keyword">function</span>(){
-          addToThumbs(<span class="keyword">this</span>);
-      });
-
-      $(<span class="string">'img[class*="product"]'</span>).each(<span class="keyword">function</span>(){
-          addToThumbs(<span class="keyword">this</span>);
-      });
-   }
-
-   <span class="comment">// Grab all images</span>
-   <span class="keyword">if</span>(thumbs.length &lt; <span class="number">10</span>){
-      $(<span class="string">'img'</span>).each(<span class="keyword">function</span>(){
-         <span class="keyword">if</span>($(<span class="keyword">this</span>).attr(<span class="string">'itemprop'</span>) === <span class="string">'image'</span>) <span class="keyword">return</span>;
-         <span class="keyword">var</span> alt = $(<span class="keyword">this</span>).attr(<span class="string">'alt'</span>);
-         <span class="comment">// Leave this test alone</span>
-         <span class="comment">// the selector 'img[alt="title"]' will not work if the title is like LG 42PT35342" PLASMA TV. Escaping issues.</span>
-         <span class="comment">// Image where the title of the page is equal to the content of the alt attribute of the image tag.</span>
-         <span class="keyword">if</span>(alt === title){
-            addToThumbs(<span class="keyword">this</span>,<span class="literal">true</span>);
-         }<span class="keyword">else</span>{
-            addToThumbs(<span class="keyword">this</span>);
-         }
-      });
-   }
-
-   <span class="keyword">if</span>(thumbs.length === <span class="number">0</span>){
-      thumbs = thumbsRejected;
-   }
-
-   <span class="keyword">return</span> thumbs;
-}</code></pre>
-<h4 id="scraptitle()">scrapTitle()</h4>
-<div></div><br>
-<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">scrapTitle</span><span class="params">(window)</span>{</span>
-   <span class="keyword">var</span> $ = window.$;
-   <span class="keyword">var</span> url = window.location.href;
-
-   <span class="comment">// Tags or attributes whom can contain a nice title for the page</span>
-   <span class="keyword">var</span> titleTag =  $(<span class="string">'title'</span>).text().trim();
-   <span class="keyword">var</span> metaTitleTag = $(<span class="string">'meta[name="title"]'</span>).attr(<span class="string">'content'</span>);
-   <span class="keyword">var</span> openGraphTitle = $(<span class="string">'meta[property="og:title"]'</span>).attr(<span class="string">'content'</span>);
-   <span class="keyword">var</span> h1Tag = $(<span class="string">'h1:first'</span>).text().trim();
-   <span class="keyword">var</span> itempropNameTag = $(<span class="string">'[itemprop="name"]'</span>).text().trim();
-   <span class="keyword">var</span> titles = [titleTag, metaTitleTag, openGraphTitle, h1Tag, itempropNameTag];
-
-   <span class="comment">// Regex of the web site name</span>
-   <span class="keyword">var</span> nameWebsite = utils.getWebsiteName(url);
-   <span class="keyword">var</span> regex = <span class="keyword">new</span> RegExp(nameWebsite,<span class="string">'i'</span>);
-   <span class="comment">// Sort to find the best title</span>
-   <span class="keyword">var</span> titlesNotEmpty = titles.filter(<span class="keyword">function</span>(value){
-      <span class="keyword">return</span> !!value;
-   });
-   <span class="keyword">var</span> titlesBest = titlesNotEmpty.filter(<span class="keyword">function</span>(value){
-      <span class="keyword">return</span> !regex.test(value);
-   });
-   <span class="keyword">var</span> bestTitle = (titlesBest &amp;&amp; titlesBest[<span class="number">0</span>]) || (titlesNotEmpty &amp;&amp; titlesNotEmpty[<span class="number">0</span>]) || <span class="string">''</span>;
-   <span class="keyword">return</span> utils.inline(bestTitle);
-}</code></pre>
-<h4 id="scrapvideo()">scrapVideo()</h4>
-<div></div><br>
-<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">scrapVideo</span><span class="params">(window)</span>{</span>
-   <span class="keyword">var</span> $ = window.$;
-   <span class="keyword">var</span> url = window.location.href;
-   <span class="keyword">var</span> thumbs = [];
-
-   <span class="comment">// Open Graph protocol by Facebook: &lt;meta property="og:video" content="(*)"/&gt;</span>
-   $(<span class="string">'meta'</span>).each(<span class="keyword">function</span>(){
-      <span class="keyword">var</span> property = $(<span class="keyword">this</span>).attr(<span class="string">'property'</span>);
-      <span class="keyword">var</span> content = $(<span class="keyword">this</span>).attr(<span class="string">'content'</span>);
-      <span class="keyword">if</span>(property === <span class="string">'og:video'</span> &amp;&amp; content){
-         thumbs.push(utils.toURL(content));
-      }
-   });
-
-   $(<span class="string">'video, embed'</span>).each(<span class="keyword">function</span>(){
-      <span class="keyword">var</span> src = $(<span class="keyword">this</span>).attr(<span class="string">'src'</span>);
-      <span class="keyword">if</span>(src) thumbs.push(utils.toURL(src,url));
-   });
-
-   <span class="keyword">return</span> thumbs;
-}</code></pre><h3 alt="lib/utils/index.js" id="lib/utils/index.js">lib/utils/index.js</h3>
+</p><h3 alt="lib/utils/index.js" id="lib/utils/index.js">lib/utils/index.js</h3>
 <h4 id="url-=-require(&apos;url&apos;),">url = require('url'),</h4>
 <div><p>Module dependencies</p>
 </div><br>
@@ -847,10 +662,249 @@ scrapinode.createScraper(<span class="string">'http://society6.com/product/Sound
    <span class="keyword">this</span>.message = message;
 }
 
-util.inherits(ScrapinodeError,Error);</code></pre>
+util.inherits(ScrapinodeError,Error);</code></pre><h3 alt="lib/defaults/index.js" id="lib/defaults/index.js">lib/defaults/index.js</h3>
+<h4 id="utils-=-require(&apos;./../utils/&apos;)">utils = require('./../utils/')</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> utils = require(<span class="string">'./../utils/'</span>);</code></pre>
+<h4 id="module.exports-=-exports-=-[">module.exports = exports = [</h4>
+<div><p>Expose default routes
+   each route is composed of a path, a content name and an operation</p>
+</div><br>
+<pre><code class="language-javascript">module.exports = exports = [
+   {
+      path : <span class="string">'*'</span>,
+      content : <span class="string">'descriptions'</span>,
+      operation : scrapDescription
+   },
+   {
+      path : <span class="string">'*'</span>,
+      content : <span class="string">'title'</span>,
+      operation : scrapTitle
+   },
+   {
+      path : <span class="string">'*'</span>,
+      content : <span class="string">'images'</span>,
+      operation : scrapImage
+   },
+   {
+      path : <span class="string">'*'</span>,
+      content : <span class="string">'videos'</span>,
+      operation : scrapVideo
+   }
+];</code></pre>
+<h4 id="scrapdescription(window)">scrapDescription(window)</h4>
+<div><p>Retrieve descriptions of the page</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">scrapDescription</span><span class="params">(window)</span>{</span>
+   <span class="keyword">var</span> $ = window.$;
+   <span class="keyword">var</span> url = window.url;
+   <span class="keyword">var</span> descriptions = [];
+
+   <span class="comment">// Open Graph protocol by Facebook &lt;meta property="og:description" content="(*)"/&gt;</span>
+   $(<span class="string">'meta[property="og:description"]'</span>).each(<span class="keyword">function</span>(){
+      <span class="keyword">var</span> content = $(<span class="keyword">this</span>).attr(<span class="string">'content'</span>);
+      <span class="keyword">if</span>(content) descriptions.push(content);
+   });
+
+   <span class="comment">// Schema.org : &lt;* itemprop="description"&gt;(*)&lt;/*&gt;</span>
+   $(<span class="string">'[itemprop="description"]'</span>).each(<span class="keyword">function</span>(){
+      <span class="keyword">var</span> text = $(<span class="keyword">this</span>).text();
+      <span class="keyword">if</span>(text) descriptions.push(text);
+   });
+
+   <span class="comment">// Meta tag description: &lt;meta property="description" content="(*)" /&gt;</span>
+   $(<span class="string">'meta[name="description"]'</span>).each(<span class="keyword">function</span>(){
+      <span class="keyword">var</span> description = utils.inline($(<span class="keyword">this</span>).attr(<span class="string">'content'</span>)).trim();
+      <span class="keyword">if</span>(description) descriptions.push(description);
+   });
+
+   <span class="comment">// Random text in div and p tags. Oriented product informations</span>
+   <span class="keyword">if</span>(descriptions.length === <span class="number">0</span>){
+      $(<span class="string">'div,p'</span>).each(<span class="keyword">function</span>(){
+         <span class="keyword">if</span>( ($(<span class="keyword">this</span>).attr(<span class="string">'class'</span>) &amp;&amp; $(<span class="keyword">this</span>).attr(<span class="string">'class'</span>).toLowerCase() === <span class="string">'productdesc'</span>) || ($(<span class="keyword">this</span>).attr(<span class="string">'id'</span>) &amp;&amp; $(<span class="keyword">this</span>).attr(<span class="string">'id'</span>).toLowerCase() === <span class="string">'productdesc'</span>)){
+            <span class="keyword">var</span> description = utils.inline($(<span class="keyword">this</span>).text()).trim();
+            <span class="keyword">if</span>(description) descriptions.push(description);
+         }
+      });
+   }
+   <span class="keyword">return</span> descriptions;
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>window {Object} - object representating the window</li>
+  </ul>
+</p>
 <p><b>Returns:</b><br>
   <ul>
-    <li>{ScrapinodeError} </li>
+    <li>{Array} </li>
+  </ul>
+</p>
+<h4 id="isvalidextension(src)">isValidExtension(src)</h4>
+<div><p>Check if the extension is considered valid</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">isValidExtension</span><span class="params">(src)</span>{</span>
+   <span class="keyword">var</span> extension = src.split(<span class="string">'.'</span>).pop();
+   <span class="keyword">var</span> isValid = ENUM_INVALID_EXTENSIONS[extension] === <span class="literal">false</span> ? <span class="literal">false</span> : <span class="literal">true</span>;
+   <span class="keyword">return</span> isValid;
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>src {String} - url of the image</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Boolean} true if valid, false otherwise</li>
+  </ul>
+</p>
+<h4 id="scrapimage(window)">scrapImage(window)</h4>
+<div><p>Retrieve image urls on the page</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">scrapImage</span><span class="params">(window)</span>{</span>
+   <span class="keyword">var</span> $ = window.$;
+   <span class="keyword">var</span> url = window.url;
+
+   <span class="keyword">var</span> thumbs = [];
+   <span class="keyword">var</span> thumbsRejected = [];
+   <span class="keyword">var</span> title = scrapTitle(window);
+   <span class="keyword">var</span> addToThumbs = <span class="keyword">function</span>(image,beginning){
+      <span class="keyword">var</span> src = $(image).attr(<span class="string">'src'</span>);
+      <span class="keyword">if</span>(src &amp;&amp; isValidExtension(src) ){
+         src = utils.toURL(src,url);
+         <span class="keyword">if</span>(beginning){
+            thumbs.unshift(src);
+         }<span class="keyword">else</span>{
+            thumbs.push(src);
+         }
+      }<span class="keyword">else</span> <span class="keyword">if</span>(src){
+         thumbsRejected.push(src);
+      }
+   };
+   <span class="comment">// Open Graph protocol by Facebook: &lt;meta property="og:image" content="(*)"/&gt;</span>
+   $(<span class="string">'meta[property="og:image"]'</span>).each(<span class="keyword">function</span>(){
+      <span class="keyword">var</span> content = $(<span class="keyword">this</span>).attr(<span class="string">'content'</span>);
+      <span class="keyword">if</span>(content) thumbs.push(utils.toURL(content));
+   });
+
+   <span class="comment">// Schema.org: &lt;img itemprop="image" src="(*)"/&gt;</span>
+   $(<span class="string">'img[itemprop="image"]'</span>).each(<span class="keyword">function</span>(){
+      addToThumbs(<span class="keyword">this</span>);
+   });
+
+   <span class="comment">// Oriented product informations</span>
+   <span class="keyword">if</span>(thumbs.length &lt; <span class="number">1</span>){
+      $(<span class="string">'img[id*="product"]'</span>).each(<span class="keyword">function</span>(){
+          addToThumbs(<span class="keyword">this</span>);
+      });
+
+      $(<span class="string">'img[class*="product"]'</span>).each(<span class="keyword">function</span>(){
+          addToThumbs(<span class="keyword">this</span>);
+      });
+   }
+
+   <span class="comment">// Grab all images</span>
+   <span class="keyword">if</span>(thumbs.length &lt; <span class="number">10</span>){
+      $(<span class="string">'img'</span>).each(<span class="keyword">function</span>(){
+         <span class="keyword">if</span>($(<span class="keyword">this</span>).attr(<span class="string">'itemprop'</span>) === <span class="string">'image'</span>) <span class="keyword">return</span>;
+         <span class="keyword">var</span> alt = $(<span class="keyword">this</span>).attr(<span class="string">'alt'</span>);
+         <span class="comment">// Leave this test alone</span>
+         <span class="comment">// the selector 'img[alt="title"]' will not work if the title is like LG 42PT35342" PLASMA TV. Escaping issues.</span>
+         <span class="comment">// Image where the title of the page is equal to the content of the alt attribute of the image tag.</span>
+         <span class="keyword">if</span>(alt === title){
+            addToThumbs(<span class="keyword">this</span>,<span class="literal">true</span>);
+         }<span class="keyword">else</span>{
+            addToThumbs(<span class="keyword">this</span>);
+         }
+      });
+   }
+
+   <span class="keyword">if</span>(thumbs.length === <span class="number">0</span>){
+      thumbs = thumbsRejected;
+   }
+
+   <span class="keyword">return</span> thumbs;
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>window {Object} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Array} </li>
+  </ul>
+</p>
+<h4 id="scraptitle(window)">scrapTitle(window)</h4>
+<div><p>Retrieve the more appropriate title of the page</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">scrapTitle</span><span class="params">(window)</span>{</span>
+   <span class="keyword">var</span> $ = window.$;
+   <span class="keyword">var</span> url = window.location.href;
+
+   <span class="comment">// Tags or attributes whom can contain a nice title for the page</span>
+   <span class="keyword">var</span> titleTag =  $(<span class="string">'title'</span>).text().trim();
+   <span class="keyword">var</span> metaTitleTag = $(<span class="string">'meta[name="title"]'</span>).attr(<span class="string">'content'</span>);
+   <span class="keyword">var</span> openGraphTitle = $(<span class="string">'meta[property="og:title"]'</span>).attr(<span class="string">'content'</span>);
+   <span class="keyword">var</span> h1Tag = $(<span class="string">'h1:first'</span>).text().trim();
+   <span class="keyword">var</span> itempropNameTag = $(<span class="string">'[itemprop="name"]'</span>).text().trim();
+   <span class="keyword">var</span> titles = [titleTag, metaTitleTag, openGraphTitle, h1Tag, itempropNameTag];
+
+   <span class="comment">// Regex of the web site name</span>
+   <span class="keyword">var</span> nameWebsite = utils.getWebsiteName(url);
+   <span class="keyword">var</span> regex = <span class="keyword">new</span> RegExp(nameWebsite,<span class="string">'i'</span>);
+   <span class="comment">// Sort to find the best title</span>
+   <span class="keyword">var</span> titlesNotEmpty = titles.filter(<span class="keyword">function</span>(value){
+      <span class="keyword">return</span> !!value;
+   });
+   <span class="keyword">var</span> titlesBest = titlesNotEmpty.filter(<span class="keyword">function</span>(value){
+      <span class="keyword">return</span> !regex.test(value);
+   });
+   <span class="keyword">var</span> bestTitle = (titlesBest &amp;&amp; titlesBest[<span class="number">0</span>]) || (titlesNotEmpty &amp;&amp; titlesNotEmpty[<span class="number">0</span>]) || <span class="string">''</span>;
+   <span class="keyword">return</span> utils.inline(bestTitle);
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>window {Object} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{String} title of the page</li>
+  </ul>
+</p>
+<h4 id="scrapvideo(window)">scrapVideo(window)</h4>
+<div><p>Retrieve the video urls on the page</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">scrapVideo</span><span class="params">(window)</span>{</span>
+   <span class="keyword">var</span> $ = window.$;
+   <span class="keyword">var</span> url = window.location.href;
+   <span class="keyword">var</span> thumbs = [];
+
+   <span class="comment">// Open Graph protocol by Facebook: &lt;meta property="og:video" content="(*)"/&gt;</span>
+   $(<span class="string">'meta'</span>).each(<span class="keyword">function</span>(){
+      <span class="keyword">var</span> property = $(<span class="keyword">this</span>).attr(<span class="string">'property'</span>);
+      <span class="keyword">var</span> content = $(<span class="keyword">this</span>).attr(<span class="string">'content'</span>);
+      <span class="keyword">if</span>(property === <span class="string">'og:video'</span> &amp;&amp; content){
+         thumbs.push(utils.toURL(content));
+      }
+   });
+
+   $(<span class="string">'video, embed'</span>).each(<span class="keyword">function</span>(){
+      <span class="keyword">var</span> src = $(<span class="keyword">this</span>).attr(<span class="string">'src'</span>);
+      <span class="keyword">if</span>(src) thumbs.push(utils.toURL(src,url));
+   });
+
+   <span class="keyword">return</span> thumbs;
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>window {Object} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Array} </li>
   </ul>
 </p></section><section id="licence"><h2 id="licence">Licence</h2><p>(The MIT License)</p>
 <p>Copyright (c) 2013 Rémy Loubradou</p>
