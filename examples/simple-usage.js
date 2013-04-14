@@ -1,5 +1,7 @@
 /**
- * Get started
+ * Simple usage
+ *
+ * Scrap and get the title of the page using the default operators.
  */
 
 var scrapinode = require('./../');

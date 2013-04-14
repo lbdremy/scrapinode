@@ -1,5 +1,5 @@
 /**
- * Use cheerio to scrape the page
+ * Use cheerio
  */
 
 var scrapinode = require('./../');

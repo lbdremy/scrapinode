@@ -1,7 +1,8 @@
 /**
- * Take advantage of the middleware system to always get content on a page
- *  The first route/operation used in the stack (router) should be specific
- *  and the others less and less specific, more generic.
+ * Take advantage of the middleware system
+ *
+ * The first route/operation used in the stack (router) should be specific
+ * and the others less and less specific, more generic.
  */
 
 var scrapinode = require('./../');

@@ -1,6 +1,8 @@
 /**
  * Define a new operation for a route
- *  A route is caracterized by a content and path (there are regex or string)
+ *
+ * A route is caracterized by a content and path (there are regex or string),
+ * also an operation is attached to each route.
  */
 
 var scrapinode = require('./../');

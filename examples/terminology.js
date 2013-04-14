@@ -1,6 +1,8 @@
 /**
+ * Terminology
+ *
  * If you wonder what I mean by "path", "content", "operation" and "route"
- * 	this is your answer
+ * this is your answer.
  */
 
 var scrapinode = require('./..');

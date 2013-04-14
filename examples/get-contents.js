@@ -1,5 +1,5 @@
 /**
- * Get the title and the description of the page
+ * Get the title and the description
  */
 
 var scrapinode = require('./../');
