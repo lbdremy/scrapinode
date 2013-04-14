@@ -3,7 +3,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 <h1 class="module-name">scrapinode</h1>
 <p><b class="module-description">content driven and route based scraper</b></p>
 <p><span class="module-version">version 0.1.0-beta</span>&nbsp;<span class="module-author">by Remy Loubradou</span>&nbsp;<span class="module-licence">licensed under MIT</span>
-</p><div style="vertical-align: baseline" class="social-buttons"><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=watch&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=fork&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><a href="https://twitter.com/share" data-text="Check out scrapinode, content driven and route based scraper" data-via="lbdremy" data-lang="en" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></script></div><br><b>Status:</b><div class="badges"><a href="http://travis-ci.org/#!/lbdremy/scrapinode" rel="nofollow"><img src="https://secure.travis-ci.org/lbdremy/scrapinode.png" alt="Build Status"/></a>&nbsp;<a href="https://gemnasium.com/lbdremy/scrapinode" rel="nofollow"><img src="https://gemnasium.com/lbdremy/scrapinode.png" alt="Dependency Status"/></a>&nbsp;</div></header><br><nav><ul><li><a href="#when-use-it?">When use it?</a></li><li><a href="#features">Features</a></li><li><a href="#install">Install</a></li><li><a href="#usage">Usage</a></li><li><a href="#test">Test</a></li><li><a href="#test-coverage">Test coverage</a></li><li><a href="#code-documentation">Code documentation</a></li><ul><li><a href="#index.js">index.js</a></li><li><a href="#lib/router.js">lib/router.js</a></li><li><a href="#lib/scrapinode.js">lib/scrapinode.js</a></li><li><a href="#lib/scraper.js">lib/scraper.js</a></li><li><a href="#lib/route.js">lib/route.js</a></li><li><a href="#lib/browser.js">lib/browser.js</a></li><li><a href="#lib/utils/index.js">lib/utils/index.js</a></li><li><a href="#lib/error/scrapinode-error.js">lib/error/scrapinode-error.js</a></li><li><a href="#lib/defaults/index.js">lib/defaults/index.js</a></li></ul><li><a href="#licence">Licence</a></li></ul></nav></div></div><div class="col-9-12"><div class="markdown-body"><article><section id="readme">
+</p><div style="vertical-align: baseline" class="social-buttons"><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=watch&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=fork&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><a href="https://twitter.com/share" data-text="Check out scrapinode, content driven and route based scraper" data-via="lbdremy" data-lang="en" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></script></div><br><b>Status:</b><div class="badges"><a href="http://travis-ci.org/#!/lbdremy/scrapinode" rel="nofollow"><img src="https://secure.travis-ci.org/lbdremy/scrapinode.png" alt="Build Status"/></a>&nbsp;<a href="https://gemnasium.com/lbdremy/scrapinode" rel="nofollow"><img src="https://gemnasium.com/lbdremy/scrapinode.png" alt="Dependency Status"/></a>&nbsp;</div></header><br><nav><ul><li><a href="#when-use-it?">When use it?</a></li><li><a href="#features">Features</a></li><li><a href="#install">Install</a></li><li><a href="#usage">Usage</a></li><li><a href="#test">Test</a></li><li><a href="#test-coverage">Test coverage</a></li><li><a href="#examples">Examples</a></li><ul><li><a href="#define-a-new-operation-for-a-route">Define a new operation for a route</a></li><li><a href="#terminology">Terminology</a></li><li><a href="#use-jsdom-and-jquery">Use jsdom and jquery</a></li><li><a href="#get-the-title-and-the-description">Get the title and the description</a></li><li><a href="#take-advantage-of-the-middleware-system">Take advantage of the middleware system</a></li><li><a href="#use-cheerio">Use cheerio</a></li><li><a href="#simple-usage">Simple usage</a></li></ul><li><a href="#code-documentation">Code documentation</a></li><ul><li><a href="#index.js">index.js</a></li><li><a href="#lib/router.js">lib/router.js</a></li><li><a href="#lib/scrapinode.js">lib/scrapinode.js</a></li><li><a href="#lib/scraper.js">lib/scraper.js</a></li><li><a href="#lib/route.js">lib/route.js</a></li><li><a href="#lib/browser.js">lib/browser.js</a></li><li><a href="#lib/utils/index.js">lib/utils/index.js</a></li><li><a href="#lib/defaults/index.js">lib/defaults/index.js</a></li><li><a href="#lib/error/scrapinode-error.js">lib/error/scrapinode-error.js</a></li></ul><li><a href="#licence">Licence</a></li></ul></nav></div></div><div class="col-9-12"><div class="markdown-body"><article><section id="readme">
 
 <h2 id="when-use-it?">When use it?</h2>
 <p>When you want to retrieve information about the page pointed by the URL that your user has just copied, scrapinode is a great fit.
@@ -49,7 +49,164 @@ scrapinode.createScraper(<span class="string">'http://society6.com/product/Sound
 
 
 
-</section><section id="lib"><h2 id="code-documentation">Code documentation</h2><h3 alt="index.js" id="index.js">index.js</h3>
+</section><section><h2 id="examples">Examples</h2>
+<h3 id="define-a-new-operation-for-a-route">Define a new operation for a route</h3>
+<div><p>A route is caracterized by a content and path (there are regex or string),
+also an operation is attached to each route.</p>
+
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./../'</span>);
+
+scrapinode.use(<span class="regexp">/http:\/\/society6\.com/</span>,<span class="string">'title'</span>,<span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+	<span class="keyword">var</span> title = $(<span class="string">'h1[itemprop="name"]'</span>).text();
+	<span class="keyword">return</span> title;
+});
+
+scrapinode.use(<span class="regexp">/http:\/\/society6\.com/</span>,<span class="string">'artist'</span>,<span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+	<span class="keyword">var</span> artist = $(<span class="string">'.details&gt;h3&gt;a'</span>).text();
+	<span class="keyword">return</span> artist;
+});
+
+scrapinode.createScraper(<span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   <span class="keyword">var</span> artist = scraper.get(<span class="string">'artist'</span>);
+   console.log(title,artist); <span class="comment">// "Sounds Good Dude Chase Kunz"</span>
+});
+
+scrapinode.createScraper(<span class="string">'http://society6.com/product/the-lord-of-fashion_T-shirt'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   <span class="keyword">var</span> artist = scraper.get(<span class="string">'artist'</span>);
+   console.log(title,artist); <span class="comment">// "the lord of fashion H A P P Y J O Y"</span>
+});</code></pre>
+</div>
+<h3 id="terminology">Terminology</h3>
+<div><p>If you wonder what I mean by &quot;path&quot;, &quot;content&quot;, &quot;operation&quot; and &quot;route&quot;
+this is your answer.</p>
+
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./..'</span>);
+
+<span class="keyword">var</span> path = <span class="regexp">/http:\/\/society6.com/</span>;
+<span class="keyword">var</span> content = <span class="string">'title'</span>;
+<span class="comment">// route is association of a "path" and a "content"</span>
+<span class="comment">// each route has its "operation" associated</span>
+<span class="keyword">var</span> operation = <span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+	<span class="keyword">var</span> title = $(<span class="string">'h1[itemprop="name"]'</span>).text();
+	<span class="keyword">return</span> title;
+};
+
+scrapinode.use(path,content,operation);
+
+scrapinode.createScraper(<span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   console.log(title); <span class="comment">// "Sound Good dude"</span>
+});</code></pre>
+</div>
+<h3 id="use-jsdom-and-jquery">Use jsdom and jquery</h3>
+<div>
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./../'</span>);
+
+scrapinode.use(<span class="regexp">/http:\/\/society6.com/</span>,<span class="string">'title'</span>,<span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+	<span class="keyword">var</span> title = $(<span class="string">'h1[itemprop="name"]'</span>).text();
+	<span class="keyword">return</span> title;
+});
+
+<span class="keyword">var</span> options = {
+	url : <span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,
+	engine : <span class="string">'jsdom'</span>
+};
+
+scrapinode.createScraper(options,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   console.log(title); <span class="comment">// "Sound Good dude"</span>
+});</code></pre>
+</div>
+<h3 id="get-the-title-and-the-description">Get the title and the description</h3>
+<div>
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./../'</span>);
+
+scrapinode.useAll(scrapinode.defaults());
+
+scrapinode.createScraper(<span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   <span class="keyword">var</span> description = scraper.get(<span class="string">'descriptions'</span>)[<span class="number">0</span>];
+   console.log(title,description);
+   <span class="comment">// "Sound Good dude American Apparel T-shirts are made with 100% fine jersey cotton combed for softness and comfort.</span>
+   <span class="comment">// (Athletic Grey and Athletic Blue contain 50% polyester / 25% cotton / 25% rayon)"</span>
+});</code></pre>
+</div>
+<h3 id="take-advantage-of-the-middleware-system">Take advantage of the middleware system</h3>
+<div><p>The first route/operation used in the stack (router) should be specific
+and the others less and less specific, more generic.</p>
+
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./../'</span>);
+
+scrapinode.use(<span class="regexp">/http:\/\/society6\.com/</span>,<span class="string">'title'</span>,<span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+   <span class="comment">// this selector is really appropriate for product pages not for the index page</span>
+	<span class="keyword">var</span> title = $(<span class="string">'h1[itemprop="name"]'</span>).text();
+   <span class="comment">// if title is falsy, the operation will return "null",</span>
+   <span class="comment">// which means that the next matching route will be used</span>
+   <span class="comment">// and so its associated operation will be called with the same "window"</span>
+   <span class="comment">// this logic goes on and on until an operation returns something else than "null"</span>
+   console.log(<span class="string">'see the title here is empty: "'</span> + title + <span class="string">'"'</span>);
+   <span class="keyword">if</span>(!title) <span class="keyword">return</span> <span class="literal">null</span>;
+	<span class="keyword">return</span> title;
+});
+
+scrapinode.use(<span class="string">'*'</span>,<span class="string">'title'</span>,<span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+   <span class="keyword">var</span> title = $(<span class="string">'title'</span>).text();
+   <span class="keyword">return</span> title;
+});
+
+scrapinode.createScraper(<span class="string">'http://society6.com'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   console.log(title); <span class="comment">// "Society6 | Affordable Art Prints, iPhone Cases and T-shirts"</span>
+});</code></pre>
+</div>
+<h3 id="use-cheerio">Use cheerio</h3>
+<div>
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./../'</span>);
+
+scrapinode.use(<span class="regexp">/http:\/\/society6.com/</span>,<span class="string">'title'</span>,<span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+	<span class="keyword">var</span> title = $(<span class="string">'h1[itemprop="name"]'</span>).text();
+	<span class="keyword">return</span> title;
+});
+
+<span class="keyword">var</span> options = {
+	url : <span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,
+	engine : <span class="string">'cheerio'</span>
+};
+
+scrapinode.createScraper(options,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   console.log(title); <span class="comment">// "Sound Good dude"</span>
+});</code></pre>
+</div>
+<h3 id="simple-usage">Simple usage</h3>
+<div><p>Scrap and get the title of the page using the default operators.</p>
+
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./../'</span>);
+
+scrapinode.useAll(scrapinode.defaults());
+
+scrapinode.createScraper(<span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   console.log(title); <span class="comment">// "Sound Good dude"</span>
+});</code></pre>
+</div></section><section id="lib"><h2 id="code-documentation">Code documentation</h2><h3 alt="index.js" id="index.js">index.js</h3>
 <h4 id="module.exports-=-require(&apos;./lib/scrapinode&apos;)">module.exports = require('./lib/scrapinode')</h4>
 <div><p>Expose the scrapinode library</p>
 </div><br>
@@ -655,26 +812,7 @@ scrapinode.createScraper(<span class="string">'http://society6.com/product/Sound
   <ul>
     <li>{String} - name of the website</li>
   </ul>
-</p><h3 alt="lib/error/scrapinode-error.js" id="lib/error/scrapinode-error.js">lib/error/scrapinode-error.js</h3>
-<h4 id="util-=-require(&apos;util&apos;)">util = require('util')</h4>
-<div><p>Module dependencies</p>
-</div><br>
-<pre><code class="language-javascript"><span class="keyword">var</span> util = require(<span class="string">'util'</span>);</code></pre>
-<h4 id="module.exports-=-scrapinodeerror">module.exports = ScrapinodeError</h4>
-<div><p>Expose <code>ScrapinodeError</code></p>
-</div><br>
-<pre><code class="language-javascript">module.exports = ScrapinodeError;</code></pre>
-<h4 id="scrapinodeerror()">ScrapinodeError()</h4>
-<div><p>Create a new <code>ScrapinodeError</code></p>
-</div><br>
-<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">ScrapinodeError</span><span class="params">(message)</span>{</span>
-   Error.call(<span class="keyword">this</span>);
-   Error.captureStackTrace(<span class="keyword">this</span>,arguments.callee);
-   <span class="keyword">this</span>.name = <span class="string">'ScrapinodeError'</span>;
-   <span class="keyword">this</span>.message = message;
-}
-
-util.inherits(ScrapinodeError,Error);</code></pre><h3 alt="lib/defaults/index.js" id="lib/defaults/index.js">lib/defaults/index.js</h3>
+</p><h3 alt="lib/defaults/index.js" id="lib/defaults/index.js">lib/defaults/index.js</h3>
 <h4 id="utils-=-require(&apos;./../utils/&apos;)">utils = require('./../utils/')</h4>
 <div><p>Module dependencies</p>
 </div><br>
@@ -918,7 +1056,26 @@ util.inherits(ScrapinodeError,Error);</code></pre><h3 alt="lib/defaults/index.js
   <ul>
     <li>{Array} </li>
   </ul>
-</p></section><section id="licence"><h2 id="licence">Licence</h2><p>(The MIT License)</p>
+</p><h3 alt="lib/error/scrapinode-error.js" id="lib/error/scrapinode-error.js">lib/error/scrapinode-error.js</h3>
+<h4 id="util-=-require(&apos;util&apos;)">util = require('util')</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> util = require(<span class="string">'util'</span>);</code></pre>
+<h4 id="module.exports-=-scrapinodeerror">module.exports = ScrapinodeError</h4>
+<div><p>Expose <code>ScrapinodeError</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = ScrapinodeError;</code></pre>
+<h4 id="scrapinodeerror()">ScrapinodeError()</h4>
+<div><p>Create a new <code>ScrapinodeError</code></p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">ScrapinodeError</span><span class="params">(message)</span>{</span>
+   Error.call(<span class="keyword">this</span>);
+   Error.captureStackTrace(<span class="keyword">this</span>,arguments.callee);
+   <span class="keyword">this</span>.name = <span class="string">'ScrapinodeError'</span>;
+   <span class="keyword">this</span>.message = message;
+}
+
+util.inherits(ScrapinodeError,Error);</code></pre></section><section id="licence"><h2 id="licence">Licence</h2><p>(The MIT License)</p>
 <p>Copyright (c) 2013 Rémy Loubradou</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the &quot;Software&quot;), to deal
