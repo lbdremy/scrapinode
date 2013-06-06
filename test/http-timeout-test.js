@@ -19,7 +19,7 @@ app.get('/',function(req,res){
 	},1000);
 });
 
-app.listen(3040);
+app.listen(3080);
 
 // Test suite
 
@@ -33,7 +33,7 @@ describe('scrapinode#createScraper(options,callback)',function(){
 				return window.$('title').text();
 			});
 			var options = {
-				url : 'http://localhost:3040/',
+				url : 'http://localhost:3080/',
 				timeout : 200,
 				retries : 0
 			};
