@@ -40,6 +40,7 @@ describe('scrapinode',function(){
 	describe('#createScraper(url,callback)',function(){
 		it('should create a scraper for the page retrieved at the given url',function(done){
 			scrapinode.createScraper('http://localhost:3030/',function(err,scraper){
+				assert.notInstanceOf(err,Error);
 				assert.isNull(err);
 				assert.isObject(scraper);
 				assert.isFunction(scraper.get);
@@ -53,6 +54,7 @@ describe('scrapinode',function(){
 				return window.$('title').text();
 			});
 			scrapinode.createScraper('http://localhost:3030/',function(err,scraper){
+				assert.notInstanceOf(err,Error);
 				assert.isNull(err);
 				assert.equal(scraper.get('title'),'html5 boilerplate: index');
 				done();
@@ -65,6 +67,7 @@ describe('scrapinode',function(){
 				return window.$('title').text() + 'es';
 			});
 			scrapinode.createScraper('http://localhost:3030/',function(err,scraper){
+				assert.notInstanceOf(err,Error);
 				assert.isNull(err);
 				assert.equal(scraper.get('title1'),'html5 boilerplate: indexes');
 				assert.equal(scraper.get('title2'),'html5 boilerplate: indexes');
@@ -80,6 +83,7 @@ describe('scrapinode',function(){
 			});
 			var left = 2;
 			scrapinode.createScraper('http://localhost:3030/',function(err,scraper){
+				assert.notInstanceOf(err,Error);
 				assert.isNull(err);
 				assert.equal(scraper.get('wep'),'html5 boilerplate: index');
 				assert.equal(scraper.get('lol'),'html5 boilerplate: index');
@@ -87,6 +91,7 @@ describe('scrapinode',function(){
 				if(!left) done();
 			});
 			scrapinode.createScraper('http://localhost:3030/page1.html',function(err,scraper){
+				assert.notInstanceOf(err,Error);
 				assert.isNull(err);
 				assert.equal(scraper.get('wep'),'html5 boilerplate: page1');
 				assert.equal(scraper.get('lol'),'html5 boilerplate: page1');
@@ -115,6 +120,7 @@ describe('scrapinode',function(){
 			];
 			scrapinode.useAll(routes);
 			scrapinode.createScraper('http://localhost:3030/',function(err,scraper){
+				assert.notInstanceOf(err,Error);
 				assert.isNull(err);
 				assert.equal(scraper.get('title'),'html5 boilerplate: index');
 				assert.equal(scraper.get('description'),'The web’s most popular front-end template');
@@ -143,16 +149,19 @@ describe('scrapinode',function(){
 			});
 			var left = 3;
 			scrapinode.createScraper('http://localhost:3030/',function(err,scraper){
+				assert.notInstanceOf(err,Error);
 				assert.isNull(err);
 				assert.equal(scraper.get('title'),'html5 boilerplate: index');
 				if(!--left) done();
 			});
 			scrapinode.createScraper('http://localhost:3030/page1.html',function(err,scraper){
+				assert.notInstanceOf(err,Error);
 				assert.isNull(err);
 				assert.equal(scraper.get('title'),'html5 boilerplate: page1???');
 				if(!--left) done();
 			});
 			scrapinode.createScraper('http://localhost:3030/page2.html',function(err,scraper){
+				assert.notInstanceOf(err,Error);
 				assert.isNull(err);
 				assert.equal(scraper.get('title'),'html5 boilerplate: page2!!!');
 				if(!--left) done();
