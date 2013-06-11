@@ -7,7 +7,7 @@
   "name": "scrapinode",
   "main": "./index.js",
   "description": "content driven and route based scraper",
-  "version": "0.1.0-beta",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:lbdremy/scrapinode.git"
