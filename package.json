@@ -22,8 +22,8 @@
     "jsdom"
   ],
   "dependencies": {
-    "jsdom": "~0.5.4",
-    "cheerio": "~0.10.5",
+    "jsdom": "~0.6.5",
+    "cheerio": "~0.12.0",
     "httperror": "~0.1.1",
     "superagent": "~0.14.7"
   },
