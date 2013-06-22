@@ -29,7 +29,7 @@ app.listen(1102);
 
 // Test suite
 
-['jsdom','cheerio'].forEach(runTestSuite);
+['jsdom','cheerio','jsdom+zepto'].forEach(runTestSuite);
 
 function runTestSuite(engine){
 	describe('scraper using the default operators thanks to ' + engine,function(){
