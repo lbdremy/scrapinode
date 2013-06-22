@@ -5,10 +5,7 @@
 var mocha = require('mocha'),
 	assert = require('chai').assert,
 	libPath = process.env['SCRAPINODE_COV'] ? '../lib-cov' : '../lib',
-	scrapinode = require( libPath + '/scrapinode'),
-	ScrapinodeError = require(libPath + '/error/scrapinode-error'),
-	express = require('express'),
-	fs = require('fs');
+	scrapinode = require( libPath + '/scrapinode');
 
 // Test suite
 
