@@ -31,6 +31,7 @@ describe('scrapinode#createScraper(url,callback)',function(){
 				return window.$('img:first').attr('src');
 			});
 			scrapinode.createScraper('http://localhost:3050/inspectocat.jpg',function(err,scraper){
+				assert.notInstanceOf(err,Error);
 				assert.isNull(err);
 				assert.equal(scraper.get('image'),'http://localhost:3050/inspectocat.jpg');
 				done();

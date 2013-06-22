@@ -35,6 +35,7 @@ describe('scrapinode#createScraper(url,callback)',function(){
 				return window.$('title').text();
 			});
 			scrapinode.createScraper('http://localhost:3040/page-html-redirection.html',function(err,scraper){
+				assert.notInstanceOf(err,Error);
 				assert.isNull(err);
 				assert.equal(scraper.get('title'),'html5 boilerplate: index');
 				done();

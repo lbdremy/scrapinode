@@ -20,6 +20,7 @@ describe('scrapinode#createScraper({url : "...", html : "..."},callback)',functi
 				html : '<!DOCTYPE html><html><head><title>Raw HTML page</title></head><body></body></html>'
 			};
 			scrapinode.createScraper(options,function(err,scraper){
+				assert.notInstanceOf(err,Error);
 				assert.isNull(err);
 				assert.equal(scraper.get('title'),'Raw HTML page');
 				done();
