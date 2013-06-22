@@ -1,0 +1,1095 @@
+<!DOCTYPE html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>scrapinode</title><meta name="title" content="scrapinode"><meta name="description" content="content driven and route based scraper"><meta name="author" content="Remy Loubradou"><meta name="keywords" content="scraper,dom,manipulation,crawler,jquery,cheerio,jsdom,scrapinode"><meta property="og:title" content="scrapinode"><meta property="og:type" content="website"><meta property="og:description" content="content driven and route based scraper"><style>/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:0.67em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre-wrap}q{quotes:&quot;\201C&quot; &quot;\201D&quot; &quot;\2018&quot; &quot;\2019&quot;}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,select{text-transform:none}button,html input[type=&quot;button&quot;],input[type=&quot;reset&quot;],input[type=&quot;submit&quot;]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}input[type=&quot;checkbox&quot;],input[type=&quot;radio&quot;]{box-sizing:border-box;padding:0}input[type=&quot;search&quot;]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=&quot;search&quot;]::-webkit-search-cancel-button,input[type=&quot;search&quot;]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}*,*:after,*:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}body{margin:0}[class*='col-']{float:left;padding-right:20px}[class*='col-']:last-of-type{padding-right:0}.grid{width:100%;max-width:1140px;min-width:755px;margin:0 auto;overflow:hidden}.grid:after{content:&quot;&quot;;display:table;clear:both}.grid-pad{padding:20px 0 0 20px}.grid-pad &gt; [class*='col-']:last-of-type{padding-right:20px}.push-right{float:right}.col-1-1{width:100%}.col-2-3,.col-8-12{width:66.66%}.col-1-2,.col-6-12{width:50%}.col-1-3,.col-4-12{width:33.33%}.col-1-4,.col-3-12{width:25%}.col-1-5{width:20%}.col-1-6,.col-2-12{width:16.667%}.col-1-7{width:14.28%}.col-1-8{width:12.5%}.col-1-9{width:11.1%}.col-1-10{width:10%}.col-1-11{width:9.09%}.col-1-12{width:8.33%}.col-11-12{width:91.66%}.col-10-12{width:83.333%}.col-9-12{width:75%}.col-5-12{width:41.66%}.col-7-12{width:58.33%}@media handheld,only screen and (max-width:767px){.grid{width:100%;min-width:0;margin-left:0;margin-right:0;padding-left:0;padding-right:0}[class*='col-']{width:auto;float:none;margin-left:0;margin-right:0;margin-top:10px;margin-bottom:10px;padding-left:20px;padding-right:20px}}*{margin:0;padding:0}html,body{color:#333}body{font:13.34px helvetica,arial,freesans,clean,sans-serif;line-height:1.4}img{border:0}a{color:#4183C4;text-decoration:none}a.absent{color:#c00}.markdown-body a[id].wiki-toc-anchor{color:inherit;text-decoration:none}.markdown-body{font-size:14px;line-height:1.6}.markdown-body&gt;*:first-child{margin-top:0!important}.markdown-body&gt;*:last-child{margin-bottom:0!important}.markdown-body a.absent{color:#c00}.markdown-body a.anchor{display:block;padding-left:30px;margin-left:-30px;cursor:pointer;position:absolute;top:0;left:0;bottom:0}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin:20px 0 10px;padding:0;font-weight:bold;-webkit-font-smoothing:antialiased;cursor:text;position:relative}.markdown-body h1:hover a.anchor,.markdown-body h2:hover a.anchor,.markdown-body h3:hover a.anchor,.markdown-body h4:hover a.anchor,.markdown-body h5:hover a.anchor,.markdown-body h6:hover a.anchor{background:url(../images/pin-20.png) no-repeat left center;text-decoration:none}.markdown-body h1 tt,.markdown-body h1 code,.markdown-body h2 tt,.markdown-body h2 code,.markdown-body h3 tt,.markdown-body h3 code,.markdown-body h4 tt,.markdown-body h4 code,.markdown-body h5 tt,.markdown-body h5 code,.markdown-body h6 tt,.markdown-body h6 code{font-size:inherit}.markdown-body h1{font-size:28px;color:#000;margin-top:20px;margin-bottom:10px}.markdown-body h2{font-size:24px;border-bottom:1px solid #ccc;color:#000}.markdown-body h3{font-size:18px}.markdown-body h4{font-size:16px}.markdown-body h5{font-size:14px}.markdown-body h6{color:#777;font-size:14px}.markdown-body p,.markdown-body blockquote,.markdown-body ul,.markdown-body ol,.markdown-body dl,.markdown-body table,.markdown-body pre{margin:0 0;margin-bottom:15px}.markdown-body li{margin:0}.markdown-body hr{background:transparent url(../images/dirty-shade.png) repeat-x 0 0;border:0 none;color:#ccc;height:4px;padding:0}.markdown-body&gt;h1:first-child,.markdown-body&gt;h2:first-child,.markdown-body&gt;h3:first-child,.markdown-body&gt;h4:first-child,.markdown-body&gt;h5:first-child,.markdown-body&gt;h6:first-child{}.markdown-body h1+h2+h3{margin-top:30px}.markdown-body a:first-child h1,.markdown-body a:first-child h2,.markdown-body a:first-child h3,.markdown-body a:first-child h4,.markdown-body a:first-child h5,.markdown-body a:first-child h6{margin-top:0;padding-top:0}.markdown-body h1+p,.markdown-body h2+p,.markdown-body h3+p,.markdown-body h4+p,.markdown-body h5+p,.markdown-body h6+p{margin-top:0}.markdown-body li p.first{display:inline-block}.markdown-body ul,.markdown-body ol{padding-left:30px}.markdown-body ul li&gt;:first-child,.markdown-body ol li&gt;:first-child{margin-top:0}.markdown-body ul li&gt;:last-child,.markdown-body ol li&gt;:last-child{margin-bottom:0}.markdown-body dl{padding:0}.markdown-body dl dt{font-size:14px;font-weight:bold;font-style:italic;padding:0;margin:15px 0 5px}.markdown-body dl dt:first-child{padding:0}.markdown-body dl dt&gt;:first-child{margin-top:0}.markdown-body dl dt&gt;:last-child{margin-bottom:0}.markdown-body dl dd{margin:0 0 15px;padding:0 15px}.markdown-body dl dd&gt;:first-child{margin-top:0}.markdown-body dl dd&gt;:last-child{margin-bottom:0}.markdown-body blockquote{border-left:4px solid #DDD;padding:0 15px;color:#777}.markdown-body blockquote&gt;:first-child{margin-top:0}.markdown-body blockquote&gt;:last-child{margin-bottom:0}.markdown-body table{padding:0;border-collapse:collapse;border-spacing:0}.markdown-body table tr{border-top:1px solid #ccc;background-color:#fff;margin:0;padding:0}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body table tr th{font-weight:bold}.markdown-body table tr th,.markdown-body table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}.markdown-body table tr th&gt;:first-child,.markdown-body table tr td&gt;:first-child{margin-top:0}.markdown-body table tr th&gt;:last-child,.markdown-body table tr td&gt;:last-child{margin-bottom:0}.markdown-body img{max-width:100%}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame&gt;span{border:1px solid #ddd;display:block;float:left;overflow:hidden;margin:13px 0 0;padding:7px;width:auto}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center&gt;span{display:block;overflow:hidden;margin:13px auto 0;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right&gt;span{display:block;overflow:hidden;margin:13px 0 0;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;margin-right:13px;overflow:hidden;float:left}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;margin-left:13px;overflow:hidden;float:right}.markdown-body span.float-right&gt;span{display:block;overflow:hidden;margin:13px auto 0;text-align:right}.markdown-body code,.markdown-body tt{margin:0 2px;padding:0 5px;border:1px solid #ddd;background-color:#f8f8f8;border-radius:3px}.markdown-body pre&gt;tt,.markdown-body pre&gt;code{margin:0;padding:0;white-space:pre;border:none;background:transparent}.markdown-body pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}.markdown-body pre pre,.markdown-body pre code,.markdown-body pre tt{background-color:transparent;border:none}.markdown-body pre pre{margin:0;padding:0}.toc{background-color:#F7F7F7;border:1px solid #ddd;padding:5px 10px;margin:0;border-radius:3px}.toc-title{color:#888;font-size:14px;line-height:1.6;padding:2px;border-bottom:1px solid #ddd;margin-bottom:3px}.toc ul{padding-left:10px;margin:0}.toc&gt;ul{margin-left:10px;font-size:17px}.toc ul ul{font-size:15px}.toc ul ul ul{font-size:14px}.toc ul li{margin:0}#header-content .toc,#footer-content .toc,#sidebar-content .toc{border:none}pre code{display:block;padding:0.5em;color:#333;background:#f8f8ff}pre .comment,pre .template_comment,pre .diff .header,pre .javadoc{color:#998;font-style:italic}pre .keyword,pre .css .rule .keyword,pre .winutils,pre .javascript .title,pre .nginx .title,pre .subst,pre .request,pre .status{color:#333;font-weight:bold}pre .number,pre .hexcolor,pre .ruby .constant{color:#099}pre .string,pre .tag .value,pre .phpdoc,pre .tex .formula{color:#d14}pre .title,pre .id,pre .coffeescript .params{color:#900;font-weight:bold}pre .javascript .title,pre .lisp .title,pre .clojure .title,pre .subst{font-weight:normal}pre .class .title,pre .haskell .type,pre .vhdl .literal,pre .tex .command{color:#458;font-weight:bold}pre .tag,pre .tag .title,pre .rules .property,pre .django .tag .keyword{color:#000080;font-weight:normal}pre .attribute,pre .variable,pre .lisp .body{color:#008080}pre .regexp{color:#009926}pre .class{color:#458;font-weight:bold}pre .symbol,pre .ruby .symbol .string,pre .lisp .keyword,pre .tex .special,pre .prompt{color:#990073}pre .built_in,pre .lisp .title,pre .clojure .built_in{color:#0086b3}pre .preprocessor,pre .pi,pre .doctype,pre .shebang,pre .cdata{color:#999;font-weight:bold}pre .deletion{background:#fdd}pre .addition{background:#dfd}pre .diff .change{background:#0086b3}pre .chunk{color:#aaa}</style><script>(function(undefined){var exports={};return exports})()</script></head><body><div class="grid"><div class="col-3-12"><div class="markdown-body"><header>
+<h1 class="module-name">scrapinode</h1>
+<p><b class="module-description">content driven and route based scraper</b></p>
+<p><span class="module-version">version 0.1.0-beta</span>&nbsp;<span class="module-author">by Remy Loubradou</span>&nbsp;<span class="module-licence">licensed under MIT</span>
+</p><div style="vertical-align: baseline" class="social-buttons"><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=watch&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=scrapinode&type=fork&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><a href="https://twitter.com/share" data-text="Check out scrapinode, content driven and route based scraper" data-via="lbdremy" data-lang="en" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></script></div><br><b>Status:</b><div class="badges"><a href="http://travis-ci.org/#!/lbdremy/scrapinode" rel="nofollow"><img src="https://secure.travis-ci.org/lbdremy/scrapinode.png" alt="Build Status"/></a>&nbsp;<a href="https://gemnasium.com/lbdremy/scrapinode" rel="nofollow"><img src="https://gemnasium.com/lbdremy/scrapinode.png" alt="Dependency Status"/></a>&nbsp;</div></header><br><nav><ul><li><a href="#when-use-it?">When use it?</a></li><li><a href="#features">Features</a></li><li><a href="#install">Install</a></li><li><a href="#usage">Usage</a></li><li><a href="#test">Test</a></li><li><a href="#test-coverage">Test coverage</a></li><li><a href="#examples">Examples</a></li><ul><li><a href="#define-a-new-operation-for-a-route">Define a new operation for a route</a></li><li><a href="#terminology">Terminology</a></li><li><a href="#use-jsdom-and-jquery">Use jsdom and jquery</a></li><li><a href="#get-the-title-and-the-description">Get the title and the description</a></li><li><a href="#take-advantage-of-the-middleware-system">Take advantage of the middleware system</a></li><li><a href="#use-cheerio">Use cheerio</a></li><li><a href="#simple-usage">Simple usage</a></li></ul><li><a href="#code-documentation">Code documentation</a></li><ul><li><a href="#index.js">index.js</a></li><li><a href="#lib/router.js">lib/router.js</a></li><li><a href="#lib/scrapinode.js">lib/scrapinode.js</a></li><li><a href="#lib/scraper.js">lib/scraper.js</a></li><li><a href="#lib/route.js">lib/route.js</a></li><li><a href="#lib/browser.js">lib/browser.js</a></li><li><a href="#lib/utils/index.js">lib/utils/index.js</a></li><li><a href="#lib/defaults/index.js">lib/defaults/index.js</a></li><li><a href="#lib/error/scrapinode-error.js">lib/error/scrapinode-error.js</a></li></ul><li><a href="#licence">Licence</a></li></ul></nav></div></div><div class="col-9-12"><div class="markdown-body"><article><section id="readme">
+
+<h2 id="when-use-it?">When use it?</h2>
+<p>When you want to retrieve information about the page pointed by the URL that your user has just copied, scrapinode is a great fit.
+First scrapinode comes out of the box with a great feature of 1 line of code, that will give you the title, the description and the images of any HTML page on the web.
+Second if you need more, you can extend it. See the examples to know more about it.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Retrieve content like &quot;title&quot;, &quot;descriptions&quot;, &quot;images&quot;, &quot;videos&quot; on any HTML pages with 1 line of code.</li>
+<li>Define specific operations based on the url of the page and the content you hope retrieve with regex.</li>
+<li>Scrape pages with jsdom + jquery or with cheerio.</li>
+<li>The HTTP client takes care to handle HTTP and HTML redirections.</li>
+<li>Scrape image like it was a HTML page.</li>
+</ul>
+<h2 id="install">Install</h2>
+<pre><code class="language-bash">npm install scrapinode</code></pre>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'scrapinode'</span>);
+
+<span class="comment">// Define an operation for a specific route and content</span>
+scrapinode.use(<span class="string">'society6.com'</span>,<span class="string">'title'</span>,<span class="keyword">function</span>(window){
+  <span class="keyword">var</span> $ = window.$;
+  <span class="keyword">var</span> url = window.location.href; <span class="comment">// url of the page maybe you want to check for some reasons</span>
+  <span class="keyword">var</span> title = $(<span class="string">'h1[itemprop="name"]'</span>).text();
+  <span class="keyword">if</span>(!title) <span class="keyword">return</span> <span class="literal">null</span>;
+  <span class="keyword">return</span> title;
+});
+
+<span class="comment">// Use default operations for content like "title", "descriptions", "images", "videos"</span>
+scrapinode.useAll(scrapinode.defaults());
+
+scrapinode.createScraper(<span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   console.log(title); <span class="comment">// "Sound Good dude"</span>
+});</code></pre>
+<h2 id="test">Test</h2>
+<pre><code class="language-bash">npm test</code></pre>
+<h2 id="test-coverage">Test coverage</h2>
+<pre><code class="language-bash">make coverage</code></pre>
+
+
+
+
+
+
+</section><section><h2 id="examples">Examples</h2>
+<h3 id="define-a-new-operation-for-a-route">Define a new operation for a route</h3>
+<div><p>A route is caracterized by a content and path (there are regex or string),
+also an operation is attached to each route.</p>
+
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./../'</span>);
+
+scrapinode.use(<span class="regexp">/http:\/\/society6\.com/</span>,<span class="string">'title'</span>,<span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+	<span class="keyword">var</span> title = $(<span class="string">'h1[itemprop="name"]'</span>).text();
+	<span class="keyword">return</span> title;
+});
+
+scrapinode.use(<span class="regexp">/http:\/\/society6\.com/</span>,<span class="string">'artist'</span>,<span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+	<span class="keyword">var</span> artist = $(<span class="string">'.details&gt;h3&gt;a'</span>).text();
+	<span class="keyword">return</span> artist;
+});
+
+scrapinode.createScraper(<span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   <span class="keyword">var</span> artist = scraper.get(<span class="string">'artist'</span>);
+   console.log(title,artist); <span class="comment">// "Sounds Good Dude Chase Kunz"</span>
+});
+
+scrapinode.createScraper(<span class="string">'http://society6.com/product/the-lord-of-fashion_T-shirt'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   <span class="keyword">var</span> artist = scraper.get(<span class="string">'artist'</span>);
+   console.log(title,artist); <span class="comment">// "the lord of fashion H A P P Y J O Y"</span>
+});</code></pre>
+</div>
+<h3 id="terminology">Terminology</h3>
+<div><p>If you wonder what I mean by &quot;path&quot;, &quot;content&quot;, &quot;operation&quot; and &quot;route&quot;
+this is your answer.</p>
+
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./..'</span>);
+
+<span class="keyword">var</span> path = <span class="regexp">/http:\/\/society6.com/</span>;
+<span class="keyword">var</span> content = <span class="string">'title'</span>;
+<span class="comment">// route is association of a "path" and a "content"</span>
+<span class="comment">// each route has its "operation" associated</span>
+<span class="keyword">var</span> operation = <span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+	<span class="keyword">var</span> title = $(<span class="string">'h1[itemprop="name"]'</span>).text();
+	<span class="keyword">return</span> title;
+};
+
+scrapinode.use(path,content,operation);
+
+scrapinode.createScraper(<span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   console.log(title); <span class="comment">// "Sound Good dude"</span>
+});</code></pre>
+</div>
+<h3 id="use-jsdom-and-jquery">Use jsdom and jquery</h3>
+<div>
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./../'</span>);
+
+scrapinode.use(<span class="regexp">/http:\/\/society6.com/</span>,<span class="string">'title'</span>,<span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+	<span class="keyword">var</span> title = $(<span class="string">'h1[itemprop="name"]'</span>).text();
+	<span class="keyword">return</span> title;
+});
+
+<span class="keyword">var</span> options = {
+	url : <span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,
+	engine : <span class="string">'jsdom'</span>
+};
+
+scrapinode.createScraper(options,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   console.log(title); <span class="comment">// "Sound Good dude"</span>
+});</code></pre>
+</div>
+<h3 id="get-the-title-and-the-description">Get the title and the description</h3>
+<div>
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./../'</span>);
+
+scrapinode.useAll(scrapinode.defaults());
+
+scrapinode.createScraper(<span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   <span class="keyword">var</span> description = scraper.get(<span class="string">'descriptions'</span>)[<span class="number">0</span>];
+   console.log(title,description);
+   <span class="comment">// "Sound Good dude American Apparel T-shirts are made with 100% fine jersey cotton combed for softness and comfort.</span>
+   <span class="comment">// (Athletic Grey and Athletic Blue contain 50% polyester / 25% cotton / 25% rayon)"</span>
+});</code></pre>
+</div>
+<h3 id="take-advantage-of-the-middleware-system">Take advantage of the middleware system</h3>
+<div><p>The first route/operation used in the stack (router) should be specific
+and the others less and less specific, more generic.</p>
+
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./../'</span>);
+
+scrapinode.use(<span class="regexp">/http:\/\/society6\.com/</span>,<span class="string">'title'</span>,<span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+   <span class="comment">// this selector is really appropriate for product pages not for the index page</span>
+	<span class="keyword">var</span> title = $(<span class="string">'h1[itemprop="name"]'</span>).text();
+   <span class="comment">// if title is falsy, the operation will return "null",</span>
+   <span class="comment">// which means that the next matching route will be used</span>
+   <span class="comment">// and so its associated operation will be called with the same "window"</span>
+   <span class="comment">// this logic goes on and on until an operation returns something else than "null"</span>
+   console.log(<span class="string">'see the title here is empty: "'</span> + title + <span class="string">'"'</span>);
+   <span class="keyword">if</span>(!title) <span class="keyword">return</span> <span class="literal">null</span>;
+	<span class="keyword">return</span> title;
+});
+
+scrapinode.use(<span class="string">'*'</span>,<span class="string">'title'</span>,<span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+   <span class="keyword">var</span> title = $(<span class="string">'title'</span>).text();
+   <span class="keyword">return</span> title;
+});
+
+scrapinode.createScraper(<span class="string">'http://society6.com'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   console.log(title); <span class="comment">// "Society6 | Affordable Art Prints, iPhone Cases and T-shirts"</span>
+});</code></pre>
+</div>
+<h3 id="use-cheerio">Use cheerio</h3>
+<div>
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./../'</span>);
+
+scrapinode.use(<span class="regexp">/http:\/\/society6.com/</span>,<span class="string">'title'</span>,<span class="keyword">function</span>(window){
+	<span class="keyword">var</span> $ = window.$;
+	<span class="keyword">var</span> title = $(<span class="string">'h1[itemprop="name"]'</span>).text();
+	<span class="keyword">return</span> title;
+});
+
+<span class="keyword">var</span> options = {
+	url : <span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,
+	engine : <span class="string">'cheerio'</span>
+};
+
+scrapinode.createScraper(options,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   console.log(title); <span class="comment">// "Sound Good dude"</span>
+});</code></pre>
+</div>
+<h3 id="simple-usage">Simple usage</h3>
+<div><p>Scrap and get the title of the page using the default operators.</p>
+
+  <pre><code class="language-javascript"><span class="keyword">var</span> scrapinode = require(<span class="string">'./../'</span>);
+
+scrapinode.useAll(scrapinode.defaults());
+
+scrapinode.createScraper(<span class="string">'http://society6.com/product/Sounds-Good-Dude_T-shirt'</span>,<span class="keyword">function</span>(err,scraper){
+   <span class="keyword">if</span>(err) <span class="keyword">return</span> console.error(err);
+   <span class="keyword">var</span> title = scraper.get(<span class="string">'title'</span>);
+   console.log(title); <span class="comment">// "Sound Good dude"</span>
+});</code></pre>
+</div></section><section id="lib"><h2 id="code-documentation">Code documentation</h2><h3 alt="index.js" id="index.js">index.js</h3>
+<h4 id="module.exports-=-require(&apos;./lib/scrapinode&apos;)">module.exports = require('./lib/scrapinode')</h4>
+<div><p>Expose the scrapinode library</p>
+</div><br>
+<pre><code class="language-javascript">module.exports = require(<span class="string">'./lib/scrapinode'</span>);</code></pre><h3 alt="lib/router.js" id="lib/router.js">lib/router.js</h3>
+<h4 id="scrapinodeerror-=-require(&apos;./error/scrapinode-error&apos;)">ScrapinodeError = require('./error/scrapinode-error')</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> ScrapinodeError = require(<span class="string">'./error/scrapinode-error'</span>);</code></pre>
+<h4 id="module.exports-=-router">module.exports = Router</h4>
+<div><p>Expose <code>Router</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = Router;</code></pre>
+<h4 id="router()">Router()</h4>
+<div><p><code>Router</code> class</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">Router</span><span class="params">()</span>{</span>
+	<span class="keyword">this</span>.routes = [];
+}</code></pre>
+<h4 id="router.prototype.addroute(route)">Router.prototype.addRoute(route)</h4>
+<div><p>Add the given <code>route</code> into <code>this.routes</code></p>
+</div><br>
+<pre><code class="language-javascript">Router.prototype.addRoute = <span class="keyword">function</span>(route){
+	<span class="keyword">this</span>.routes.push(route);
+	<span class="keyword">return</span> <span class="keyword">this</span>;
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>route {Route} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Router} </li>
+  </ul>
+</p>
+<h4 id="router.prototype.dispatch(url,content,index)">Router.prototype.dispatch(url,content,index)</h4>
+<div><p>Find the relevant operation for the given <code>url</code> and <code>content</code> expected</p>
+</div><br>
+<pre><code class="language-javascript">Router.prototype.dispatch = <span class="keyword">function</span>(url,content,index){
+	<span class="keyword">for</span>(<span class="keyword">var</span> i = index; i &lt; <span class="keyword">this</span>.routes.length; i++){
+		<span class="keyword">var</span> route = <span class="keyword">this</span>.routes[i];
+		<span class="keyword">if</span>(route.match(url,content)){
+			<span class="keyword">var</span> result = {
+				index : i,
+				operation : route.operation
+			};
+			<span class="keyword">return</span> result;
+		}
+	}
+
+	<span class="keyword">var</span> message = <span class="string">'Dead end, no content found and no more route.'</span>;
+	<span class="keyword">var</span> infos = {
+		url : url,
+		content : content,
+		routes : <span class="keyword">this</span>.routes
+	};
+	<span class="keyword">throw</span> <span class="keyword">new</span> ScrapinodeError(message + <span class="string">'Informations: '</span> + JSON.stringify(infos));
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>url {String} -</li>
+    <li>content {String} -</li>
+    <li>index {Number} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Object} -</li>
+  </ul>
+</p><h3 alt="lib/scrapinode.js" id="lib/scrapinode.js">lib/scrapinode.js</h3>
+<h4 id="browser-=-require(&apos;./browser&apos;),">browser = require('./browser'),</h4>
+<div><p>Modules dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> browser = require(<span class="string">'./browser'</span>),
+  Router = require(<span class="string">'./router'</span>),
+  Route = require(<span class="string">'./route'</span>),
+  Scraper = require(<span class="string">'./scraper'</span>),
+  defaults = require(<span class="string">'./defaults/'</span>);</code></pre>
+<h4 id="module.exports-=-exports-=-new-scrapinode()">module.exports = exports = new Scrapinode()</h4>
+<div><p>Expose an instance of <code>Scrapinode</code>
+ as a convenience mostly</p>
+</div><br>
+<pre><code class="language-javascript">module.exports = exports = <span class="keyword">new</span> Scrapinode();</code></pre>
+<h4 id="exports.createinstance()">exports.createInstance()</h4>
+<div><p>Create an instance of <code>Scrapinode</code></p>
+</div><br>
+<pre><code class="language-javascript">exports.createInstance = <span class="keyword">function</span>(engine){
+  <span class="keyword">return</span> <span class="keyword">new</span> Scrapinode(engine);
+};</code></pre>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Scrapinode} a new instance of `Scrapinode`</li>
+  </ul>
+</p>
+<h4 id="scrapinode()">Scrapinode()</h4>
+<div><p><code>Scrapinode</code> class</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">Scrapinode</span><span class="params">(engine)</span>{</span>
+  <span class="keyword">this</span>.engine = engine || <span class="string">'jsdom'</span>;
+  <span class="keyword">this</span>.router = <span class="keyword">new</span> Router();
+};</code></pre>
+<h4 id="scrapinode.prototype.createscraper(options,callback)">Scrapinode.prototype.createScraper(options,callback)</h4>
+<div><p>Create a scraper for the given <code>url</code> with the given <code>engine</code></p>
+</div><br>
+<pre><code class="language-javascript">Scrapinode.prototype.createScraper = <span class="function"><span class="keyword">function</span> <span class="params">(options,callback)</span>{</span>
+  <span class="keyword">var</span> self = <span class="keyword">this</span>;
+  <span class="keyword">if</span>(<span class="keyword">typeof</span>(options) === <span class="string">'string'</span>){
+    <span class="keyword">var</span> url = options;
+    options = {
+      url : url,
+      engine : <span class="keyword">this</span>.engine
+    };
+  }
+
+  <span class="keyword">if</span>(!options.engine) options.engine = <span class="keyword">this</span>.engine;
+
+  browser.load(options,<span class="keyword">function</span>(err,window){
+    <span class="keyword">if</span>(err) <span class="keyword">return</span> callback(err);
+    <span class="keyword">var</span> scraper = <span class="keyword">new</span> Scraper(options.url,window,self.router);
+    callback(err,scraper);
+  });
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>options {String|Object} - url of the page or a set of options in this case options.url is mandatory</li>
+    <li>options.url {String} - url of the page</li>
+    <li>[options.engine=this.engine] {String} - name of the engine (jsdom or cheerio)</li>
+    <li>[options.html=undefined] {String} - HTML content</li>
+    <li>callback {Function} - call when the scraper is ready for work</li>
+    <li>callback().err {Error} -</li>
+    <li>callback().scraper {Scraper} -</li>
+  </ul>
+</p>
+<h4 id="scrapinode.prototype.use(path,content,operation)">Scrapinode.prototype.use(path,content,operation)</h4>
+<div><p>Add the given <code>operation</code> in the router for the given <code>path</code> and <code>content</code></p>
+</div><br>
+<pre><code class="language-javascript">Scrapinode.prototype.use = <span class="keyword">function</span>(path,content,operation){
+  <span class="keyword">this</span>.router.addRoute(<span class="keyword">new</span> Route(path,content,operation));
+  <span class="keyword">return</span> <span class="keyword">this</span>;
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>path {String|RegExp} -</li>
+    <li>content {String|RegExp} -</li>
+    <li>operation {Function} - function called when the path and the content match</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Scrapinode} itself, allow to chain methods call</li>
+  </ul>
+</p>
+<h4 id="scrapinode.prototype.useall(routes)">Scrapinode.prototype.useAll(routes)</h4>
+<div><p>Add all given <code>routes</code> caracterized by a <code>path</code>, a <code>content</code> and an <code>operation</code> in the <code>router</code></p>
+</div><br>
+<pre><code class="language-javascript">Scrapinode.prototype.useAll = <span class="keyword">function</span>(routes){
+  <span class="keyword">var</span> self = <span class="keyword">this</span>;
+  routes.forEach(<span class="keyword">function</span>(route){
+    self.router.addRoute(<span class="keyword">new</span> Route(route.path,route.content,route.operation));
+  });
+  <span class="keyword">return</span> self;
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>routes {Array} -</li>
+    <li>routes[].path {String|RegExp} -</li>
+    <li>routes[].content {String|RegExp} -</li>
+    <li>routes[].operation {Function} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Scrapinode} itself, allow to chain methods call</li>
+  </ul>
+</p>
+<h4 id="scrapinode.prototype.clearrouter()">Scrapinode.prototype.clearRouter()</h4>
+<div><p>Remove all the routes available in the router</p>
+</div><br>
+<pre><code class="language-javascript">Scrapinode.prototype.clearRouter = <span class="keyword">function</span>(){
+  <span class="keyword">this</span>.router.routes = [];
+  <span class="keyword">return</span> <span class="keyword">this</span>;
+};</code></pre>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Scrapinode} itself, allow to chain methods call</li>
+  </ul>
+</p>
+<h4 id="scrapinode.prototype.defaults()">Scrapinode.prototype.defaults()</h4>
+<div><p>Expose default routes for the contents &quot;title&quot;, &quot;descriptions&quot;, &quot;videos&quot;, &quot;images&quot;</p>
+</div><br>
+<pre><code class="language-javascript">Scrapinode.prototype.defaults = <span class="keyword">function</span>(){
+  <span class="keyword">return</span> defaults;
+};</code></pre>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Array} routes</li>
+  </ul>
+</p><h3 alt="lib/scraper.js" id="lib/scraper.js">lib/scraper.js</h3>
+<h4 id="module.exports-=-scraper">module.exports = Scraper</h4>
+<div><p>Expose <code>Scraper</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = Scraper;</code></pre>
+<h4 id="scraper(url,window,router)">Scraper(url,window,router)</h4>
+<div><p><code>Scraper</code> class</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">Scraper</span><span class="params">(url,window,router)</span>{</span>
+	<span class="keyword">this</span>.url = url;
+	<span class="keyword">this</span>.window = window;
+	<span class="keyword">this</span>.router = router;
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>url {String} -</li>
+    <li>window {Object} -</li>
+    <li>router {Router} -</li>
+  </ul>
+</p>
+<h4 id="scraper.prototype.get(content,[index])">Scraper.prototype.get(content,[index])</h4>
+<div><p>Get the given <code>content</code> from the <code>this.router</code></p>
+</div><br>
+<pre><code class="language-javascript">Scraper.prototype.get = <span class="keyword">function</span>(content,index) {
+	<span class="keyword">if</span>(!index) index = <span class="number">0</span>;
+	<span class="keyword">var</span> result = <span class="keyword">this</span>.router.dispatch(<span class="keyword">this</span>.url,content,index);
+	<span class="keyword">var</span> trouvaille = result.operation(<span class="keyword">this</span>.window);
+	<span class="keyword">if</span>(trouvaille === <span class="literal">null</span>) <span class="keyword">return</span> <span class="keyword">this</span>.get(content,result.index + <span class="number">1</span>);
+	<span class="keyword">return</span> trouvaille;
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>content {String} -</li>
+    <li>[index] {Number} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{String|Number|Object|Boolean|null|undefined} </li>
+  </ul>
+</p><h3 alt="lib/route.js" id="lib/route.js">lib/route.js</h3>
+<h4 id="module.exports-=-route">module.exports = Route</h4>
+<div><p>Expose <code>Route</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = Route;</code></pre>
+<h4 id="route(path,content,operation)">Route(path,content,operation)</h4>
+<div><p><code>Route</code> class</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">Route</span><span class="params">(path,content,operation)</span>{</span>
+	<span class="keyword">if</span>(<span class="keyword">typeof</span>(path) === <span class="string">'string'</span>){
+		<span class="keyword">if</span>(path === <span class="string">'*'</span>) path = <span class="string">'.*'</span>;
+		path = <span class="keyword">new</span> RegExp(path);
+	}
+	<span class="keyword">if</span>(<span class="keyword">typeof</span>(content) === <span class="string">'string'</span>){
+		<span class="keyword">if</span>(content === <span class="string">'*'</span>) content = <span class="string">'.*'</span>;
+		content = <span class="keyword">new</span> RegExp(content);
+	}
+	<span class="keyword">this</span>.path = path;
+	<span class="keyword">this</span>.content = content;
+	<span class="keyword">this</span>.operation = operation;
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>path {String|RegExp} -</li>
+    <li>content {String|RegExp} -</li>
+    <li>operation {Function} -</li>
+  </ul>
+</p>
+<h4 id="route.prototype.match(url,content)">Route.prototype.match(url,content)</h4>
+<div><p>Attempt to match the given <code>url</code> with <code>this.path</code> and <code>content</code> with <code>this.content</code></p>
+</div><br>
+<pre><code class="language-javascript">Route.prototype.match = <span class="keyword">function</span>(url,content){
+	<span class="keyword">return</span> <span class="keyword">this</span>.path.test(url) &amp;&amp; <span class="keyword">this</span>.content.test(content);
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>url {String} -</li>
+    <li>content {String} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Boolean} </li>
+  </ul>
+</p><h3 alt="lib/browser.js" id="lib/browser.js">lib/browser.js</h3>
+<h4 id="jsdom-=-require(&apos;jsdom&apos;),">jsdom = require('jsdom'),</h4>
+<div><p>Modules dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> jsdom = require(<span class="string">'jsdom'</span>),
+    cheerio = require(<span class="string">'cheerio'</span>),
+    request = <span class="keyword">new</span> require(<span class="string">'superagent'</span>).agent(),
+    fs = require(<span class="string">'fs'</span>),
+    ScrapinodeError = require(<span class="string">'./error/scrapinode-error'</span>),
+    HTTPError = require(<span class="string">'httperror'</span>);</code></pre>
+<h4 id="jqueryext-=-fs.readfilesync(__dirname-+-&apos;/../deps/jquery-regex-selector.js&apos;).tostring()">jqueryExt = fs.readFileSync(__dirname + '/../deps/jquery-regex-selector.js').toString()</h4>
+<div><p>jQuery dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> jqueryExt = fs.readFileSync(__dirname + <span class="string">'/../deps/jquery-regex-selector.js'</span>).toString();
+<span class="keyword">var</span> jquery = fs.readFileSync(__dirname + <span class="string">'/../deps/jquery-1.6.2.min.js'</span>).toString() + jqueryExt;</code></pre>
+<h4 id="exports.load(options,callback)">exports.load(options,callback)</h4>
+<div><p>Build the DOM of the given page found at <code>options.url</code> or <code>options.html</code></p>
+</div><br>
+<pre><code class="language-javascript">exports.load = <span class="keyword">function</span>(options,callback){
+
+    <span class="keyword">if</span>(options.html){
+        <span class="keyword">return</span> process.nextTick(<span class="keyword">function</span>(){
+            buildDOM(options.html,options.engine,options.url,callback);
+        });
+    }
+
+    <span class="keyword">var</span> headers = {
+        <span class="string">'user-agent'</span> : <span class="string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.107 Safari/535.1'</span>,
+        <span class="string">'accept'</span> : <span class="string">'text/html, application/xhtml+xml, application/xml; q=0.9'</span>,
+        <span class="string">'accept-charset'</span> : <span class="string">'utf-8; q=1.0, ISO-8859-1; q=0.7, *; q=0.3'</span>,
+        <span class="string">'accept-encoding'</span> : <span class="string">'gzip, deflate'</span>
+    };
+    <span class="keyword">var</span> timeout = <span class="number">5000</span>;
+    <span class="keyword">var</span> retries = <span class="number">3</span>;
+    <span class="keyword">var</span> redirects = <span class="number">5</span>;
+
+    getRequest({
+        url : options.url,
+        headers : headers,
+        timeout : timeout,
+        retries : retries,
+        redirects : redirects
+    },<span class="keyword">function</span>(err,body){
+        <span class="keyword">if</span>(err) <span class="keyword">return</span> callback(err);
+        buildDOM(body,options.engine,options.url,callback);
+    });
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>options {Object} -</li>
+    <li>callback {Function} -</li>
+    <li>callback().err {Error} -</li>
+    <li>callback().window {Object} -</li>
+  </ul>
+</p>
+<h4 id="getrequest(options,callback)">getRequest(options,callback)</h4>
+<div><p>Send an HTTP GET request to <code>options.url</code></p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">getRequest</span><span class="params">(options,callback)</span>{</span>
+    <span class="keyword">var</span> destroyed = <span class="literal">false</span>;
+    <span class="keyword">var</span> req = request.get(options.url)
+        .set(options.headers)
+        .timeout(options.timeout)
+        .redirects(options.redirects)
+        .buffer(<span class="literal">false</span>)
+        .end(<span class="keyword">function</span>(err,res){
+            <span class="keyword">if</span>(err) <span class="keyword">return</span> onError(err);
+
+            <span class="comment">// Check HTTP status code</span>
+            <span class="keyword">var</span> isHTTPError = isRedirect(res.status) || isClientError(res.status) || isServerError(res.status);
+            <span class="keyword">if</span>(isHTTPError) <span class="keyword">return</span> onError(<span class="keyword">new</span> HTTPError(res.status));
+
+            <span class="comment">// Attach event handlers and build the body</span>
+            <span class="keyword">var</span> body = <span class="string">''</span>;
+            res.on(<span class="string">'data'</span>,<span class="keyword">function</span>(chunk){
+                body += chunk;
+            });
+            res.on(<span class="string">'end'</span>,<span class="keyword">function</span>(){
+                <span class="keyword">if</span>(destroyed) <span class="keyword">return</span>;
+                <span class="comment">// Check if a HTTP refresh/redirection is present into the HTML page, if yes refreshes/redirects.</span>
+                <span class="keyword">var</span> matches = body.match(<span class="regexp">/&lt;meta[ ]*http-equiv="REFRESH"[ ]*content="[0-9]{1,};[ ]*URL=(.*?)"[ ]*\/?&gt;/i</span>);
+                <span class="keyword">if</span>(matches &amp;&amp; matches[<span class="number">1</span>]){
+                    options.url = matches[<span class="number">1</span>];
+                    <span class="keyword">return</span> getRequest(options,callback);
+                }
+                callback(<span class="literal">null</span>,body);
+            });
+            res.on(<span class="string">'error'</span>,onError);
+
+            <span class="comment">// Check if content-type is an image, if yes destroy the response and build a HTML page with the image in it</span>
+            <span class="keyword">if</span>(isImage(res.headers)){
+                res.destroy();
+                destroyed = <span class="literal">true</span>;
+                body = <span class="string">'&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="'</span> + options.url + <span class="string">'" /&gt;&lt;/body&gt;&lt;/html&gt;'</span>;
+                <span class="keyword">return</span> callback(<span class="literal">null</span>,body);
+            }
+        });
+
+    <span class="comment">// Error event handler</span>
+    <span class="function"><span class="keyword">function</span> <span class="title">onError</span><span class="params">(err)</span>{</span>
+        <span class="keyword">if</span>(options.retries--) <span class="keyword">return</span> getRequest(options,callback);
+        callback(err);
+    }
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>options {Object} - configuration of the HTTP GET request</li>
+    <li>options.headers {String} - set of headers</li>
+    <li>options.timeout {Number} - timeout</li>
+    <li>options.redirects {Number} - number of times the request will follow redirection instructions</li>
+    <li>options.retries {Number} - number of times the request will be resend if the request failed</li>
+    <li>callback {Function} -</li>
+  </ul>
+</p>
+<h4 id="builddom(body,engine,url,callback)">buildDOM(body,engine,url,callback)</h4>
+<div><p>Build a DOM representation of the given HTML <code>body</code></p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">buildDOM</span><span class="params">(body,engine,url,callback)</span>{</span>
+    <span class="keyword">if</span>(!body){
+        <span class="keyword">return</span> callback(<span class="keyword">new</span> ScrapinodeError(<span class="string">'The HTTP response contains an empty body: "'</span> + body +<span class="string">'"'</span>));
+    }
+
+    <span class="keyword">if</span>(engine === <span class="string">'jsdom'</span>){
+        jsdom.env({
+           html: body,
+           src : [jquery],
+           done : <span class="keyword">function</span>(err,window){
+               window.location.href = url;
+               callback(err,window);
+               window.close();
+           }
+        });
+    }<span class="keyword">else</span> <span class="keyword">if</span>(engine === <span class="string">'cheerio'</span>){
+        <span class="keyword">var</span> $ = cheerio.load(body);
+        <span class="keyword">var</span> window = {
+            $ : $,
+            location : {
+                href : url
+            }
+        };
+        callback(<span class="literal">null</span>,window);
+    }<span class="keyword">else</span>{
+        callback(<span class="keyword">new</span> ScrapinodeError(<span class="string">'The engine "'</span> + engine + <span class="string">'" is not supported. Scrapinode only supports jsdom and cheerio.'</span>));
+    }
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>body {String} - html page</li>
+    <li>engine {String} - name of the engine used to generate the DOM</li>
+    <li>url {String} - url of the page containing the given `body`</li>
+    <li>callback {Function} -</li>
+  </ul>
+</p>
+<h4 id="isredirect(code)">isRedirect(code)</h4>
+<div><p>Check if the <code>code</code> is a HTTP redirection status.</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">isRedirect</span><span class="params">(code)</span> {</span>
+  <span class="keyword">return</span> (code &gt;= <span class="number">300</span> &amp;&amp; code &lt; <span class="number">399</span>);
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>code {Number} </li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Boolean} </li>
+  </ul>
+</p>
+<h4 id="isclienterror(code)">isClientError(code)</h4>
+<div><p>Check if the <code>code</code> is a HTTP client error status.</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">isClientError</span><span class="params">(code)</span>{</span>
+    <span class="keyword">return</span> (code &gt;= <span class="number">400</span> &amp;&amp; code &lt; <span class="number">499</span>);
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>code {Number} </li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Boolean} </li>
+  </ul>
+</p>
+<h4 id="isservererror(code)">isServerError(code)</h4>
+<div><p>Check if the <code>code</code> is a HTTP server error status.</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">isServerError</span><span class="params">(code)</span>{</span>
+    <span class="keyword">return</span> (code &gt;= <span class="number">500</span> &amp;&amp; code &lt; <span class="number">599</span>);
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>code {Number} </li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Boolean} </li>
+  </ul>
+</p>
+<h4 id="isimage(headers)">isImage(headers)</h4>
+<div><p>Check if the content of the HTTP body is an image</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">isImage</span><span class="params">(headers)</span>{</span>
+    <span class="keyword">var</span> regexImage = <span class="regexp">/image\//i</span>;
+    <span class="keyword">var</span> contentType = headers ?  headers[<span class="string">'content-type'</span>] : <span class="string">''</span>;
+    <span class="keyword">return</span> regexImage.test(contentType);
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>headers {Object} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Boolean} </li>
+  </ul>
+</p><h3 alt="lib/utils/index.js" id="lib/utils/index.js">lib/utils/index.js</h3>
+<h4 id="url-=-require(&apos;url&apos;),">url = require('url'),</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> url = require(<span class="string">'url'</span>),
+   domains = require(<span class="string">'./domains'</span>);</code></pre>
+<h4 id="exports.isurl(path)">exports.isURL(path)</h4>
+<div><p>Check if the given <code>path</code> is an URL</p>
+</div><br>
+<pre><code class="language-javascript">exports.isURL = <span class="function"><span class="keyword">function</span> <span class="title">isURL</span><span class="params">(path)</span> {</span>
+   <span class="keyword">var</span> regex = <span class="regexp">/(https?:)?\/\/([\-\w\.]+)+/i</span>;
+   <span class="keyword">return</span> regex.test(path);
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>path {String} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Boolean} </li>
+  </ul>
+</p>
+<h4 id="exports.tourl(path,uri)">exports.toURL(path,uri)</h4>
+<div><p>Convert a relative/absolute path into an URL</p>
+</div><br>
+<pre><code class="language-javascript">exports.toURL = <span class="function"><span class="keyword">function</span> <span class="title">toURL</span><span class="params">(path,uri)</span>{</span>
+   <span class="keyword">var</span> absolutePath = path;
+   <span class="keyword">if</span>(!exports.isURL(path)){
+      <span class="keyword">var</span> explodeURL = url.parse(uri);
+      <span class="comment">// 2 cases: absolute path and relative path to the current pathname</span>
+      <span class="keyword">if</span>( path.charAt(<span class="number">0</span>) === <span class="string">'/'</span>){
+         absolutePath = explodeURL.protocol + <span class="string">'//'</span> + explodeURL.host + path;
+      }<span class="keyword">else</span>{
+         <span class="keyword">var</span> explodePathname = explodeURL.pathname.split(<span class="string">'/'</span>);
+         <span class="keyword">var</span> pathname = explodePathname.slice(<span class="number">0</span>,explodePathname.length - <span class="number">1</span>).join(<span class="string">'/'</span>);
+         absolutePath = explodeURL.protocol + <span class="string">'//'</span> + (explodeURL.host + <span class="string">'/'</span> +pathname + <span class="string">'/'</span> + path).replace(<span class="string">'\/\/'</span>,<span class="string">'/'</span>,<span class="string">'g'</span>);
+      }
+   }
+   <span class="keyword">return</span> absolutePath;
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>path {String} - relative/absolute path to a resource</li>
+    <li>uri {String} - url</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{String} </li>
+  </ul>
+</p>
+<h4 id="exports.inline(text)">exports.inline(text)</h4>
+<div><p>Inline the text, remove characters &quot;/n&quot; and &quot; &quot; (space)</p>
+</div><br>
+<pre><code class="language-javascript">exports.inline = <span class="function"><span class="keyword">function</span> <span class="title">inline</span><span class="params">(text)</span>{</span>
+   <span class="keyword">var</span> explode = text.split(<span class="string">'\n'</span>).join(<span class="string">''</span>).split(<span class="string">' '</span>);
+   <span class="keyword">var</span> size = explode.length;
+   <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; size ; i++){
+      <span class="keyword">if</span>(!explode[i]){
+         explode.splice(i,<span class="number">1</span>);
+         i--;
+         size--;
+      }
+   }
+   <span class="keyword">return</span> explode.join(<span class="string">' '</span>).trim();
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>text {String} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{String} </li>
+  </ul>
+</p>
+<h4 id="exports.getwebsitename(uri)">exports.getWebsiteName(uri)</h4>
+<div><p>Get the name of the website from an uri</p>
+</div><br>
+<pre><code class="language-javascript">exports.getWebsiteName = <span class="function"><span class="keyword">function</span> <span class="title">getWebsiteName</span><span class="params">(uri)</span>{</span>
+   <span class="keyword">var</span> hostname = url.parse(uri).hostname;
+   <span class="keyword">var</span> name = <span class="string">''</span>;
+   <span class="keyword">if</span>(hostname){
+      <span class="keyword">var</span> subdomains = domains;
+      <span class="keyword">var</span> components = hostname.split(<span class="string">'.'</span>);
+      <span class="keyword">for</span>(<span class="keyword">var</span> i = components.length -<span class="number">1</span> ; i &gt;=  <span class="number">0</span>; i-- ){
+         <span class="keyword">if</span>(subdomains[components[i]]){
+            subdomains = subdomains[components[i]];
+         }<span class="keyword">else</span>{
+            name = components[i];
+            <span class="keyword">break</span>;
+         }
+      }
+   }
+   <span class="keyword">return</span> name;
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>uri {String} </li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{String} - name of the website</li>
+  </ul>
+</p><h3 alt="lib/defaults/index.js" id="lib/defaults/index.js">lib/defaults/index.js</h3>
+<h4 id="utils-=-require(&apos;./../utils/&apos;)">utils = require('./../utils/')</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> utils = require(<span class="string">'./../utils/'</span>);</code></pre>
+<h4 id="module.exports-=-exports-=-[">module.exports = exports = [</h4>
+<div><p>Expose default routes
+   each route is composed of a path, a content name and an operation</p>
+</div><br>
+<pre><code class="language-javascript">module.exports = exports = [
+   {
+      path : <span class="string">'*'</span>,
+      content : <span class="string">'descriptions'</span>,
+      operation : scrapDescription
+   },
+   {
+      path : <span class="string">'*'</span>,
+      content : <span class="string">'title'</span>,
+      operation : scrapTitle
+   },
+   {
+      path : <span class="string">'*'</span>,
+      content : <span class="string">'images'</span>,
+      operation : scrapImage
+   },
+   {
+      path : <span class="string">'*'</span>,
+      content : <span class="string">'videos'</span>,
+      operation : scrapVideo
+   }
+];</code></pre>
+<h4 id="scrapdescription(window)">scrapDescription(window)</h4>
+<div><p>Retrieve descriptions of the page</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">scrapDescription</span><span class="params">(window)</span>{</span>
+   <span class="keyword">var</span> $ = window.$;
+   <span class="keyword">var</span> url = window.url;
+   <span class="keyword">var</span> descriptions = [];
+
+   <span class="comment">// Open Graph protocol by Facebook &lt;meta property="og:description" content="(*)"/&gt;</span>
+   $(<span class="string">'meta[property="og:description"]'</span>).each(<span class="keyword">function</span>(){
+      <span class="keyword">var</span> content = $(<span class="keyword">this</span>).attr(<span class="string">'content'</span>);
+      <span class="keyword">if</span>(content) descriptions.push(content);
+   });
+
+   <span class="comment">// Schema.org : &lt;* itemprop="description"&gt;(*)&lt;/*&gt;</span>
+   $(<span class="string">'[itemprop="description"]'</span>).each(<span class="keyword">function</span>(){
+      <span class="keyword">var</span> text = $(<span class="keyword">this</span>).text();
+      <span class="keyword">if</span>(text) descriptions.push(text);
+   });
+
+   <span class="comment">// Meta tag description: &lt;meta property="description" content="(*)" /&gt;</span>
+   $(<span class="string">'meta[name="description"]'</span>).each(<span class="keyword">function</span>(){
+      <span class="keyword">var</span> description = utils.inline($(<span class="keyword">this</span>).attr(<span class="string">'content'</span>)).trim();
+      <span class="keyword">if</span>(description) descriptions.push(description);
+   });
+
+   <span class="comment">// Random text in div and p tags. Oriented product informations</span>
+   <span class="keyword">if</span>(descriptions.length === <span class="number">0</span>){
+      $(<span class="string">'div,p'</span>).each(<span class="keyword">function</span>(){
+         <span class="keyword">if</span>( ($(<span class="keyword">this</span>).attr(<span class="string">'class'</span>) &amp;&amp; $(<span class="keyword">this</span>).attr(<span class="string">'class'</span>).toLowerCase() === <span class="string">'productdesc'</span>) || ($(<span class="keyword">this</span>).attr(<span class="string">'id'</span>) &amp;&amp; $(<span class="keyword">this</span>).attr(<span class="string">'id'</span>).toLowerCase() === <span class="string">'productdesc'</span>)){
+            <span class="keyword">var</span> description = utils.inline($(<span class="keyword">this</span>).text()).trim();
+            <span class="keyword">if</span>(description) descriptions.push(description);
+         }
+      });
+   }
+   <span class="keyword">return</span> descriptions;
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>window {Object} - object representating the window</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Array} </li>
+  </ul>
+</p>
+<h4 id="isvalidextension(src)">isValidExtension(src)</h4>
+<div><p>Check if the extension is considered valid</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">isValidExtension</span><span class="params">(src)</span>{</span>
+   <span class="keyword">var</span> extension = src.split(<span class="string">'.'</span>).pop();
+   <span class="keyword">var</span> isValid = ENUM_INVALID_EXTENSIONS[extension] === <span class="literal">false</span> ? <span class="literal">false</span> : <span class="literal">true</span>;
+   <span class="keyword">return</span> isValid;
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>src {String} - url of the image</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Boolean} true if valid, false otherwise</li>
+  </ul>
+</p>
+<h4 id="scrapimage(window)">scrapImage(window)</h4>
+<div><p>Retrieve image urls on the page</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">scrapImage</span><span class="params">(window)</span>{</span>
+   <span class="keyword">var</span> $ = window.$;
+   <span class="keyword">var</span> url = window.url;
+
+   <span class="keyword">var</span> thumbs = [];
+   <span class="keyword">var</span> thumbsRejected = [];
+   <span class="keyword">var</span> title = scrapTitle(window);
+   <span class="keyword">var</span> addToThumbs = <span class="keyword">function</span>(image,beginning){
+      <span class="keyword">var</span> src = $(image).attr(<span class="string">'src'</span>);
+      <span class="keyword">if</span>(src &amp;&amp; isValidExtension(src) ){
+         src = utils.toURL(src,url);
+         <span class="keyword">if</span>(beginning){
+            thumbs.unshift(src);
+         }<span class="keyword">else</span>{
+            thumbs.push(src);
+         }
+      }<span class="keyword">else</span> <span class="keyword">if</span>(src){
+         thumbsRejected.push(src);
+      }
+   };
+   <span class="comment">// Open Graph protocol by Facebook: &lt;meta property="og:image" content="(*)"/&gt;</span>
+   $(<span class="string">'meta[property="og:image"]'</span>).each(<span class="keyword">function</span>(){
+      <span class="keyword">var</span> content = $(<span class="keyword">this</span>).attr(<span class="string">'content'</span>);
+      <span class="keyword">if</span>(content) thumbs.push(utils.toURL(content));
+   });
+
+   <span class="comment">// Schema.org: &lt;img itemprop="image" src="(*)"/&gt;</span>
+   $(<span class="string">'img[itemprop="image"]'</span>).each(<span class="keyword">function</span>(){
+      addToThumbs(<span class="keyword">this</span>);
+   });
+
+   <span class="comment">// Oriented product informations</span>
+   <span class="keyword">if</span>(thumbs.length &lt; <span class="number">1</span>){
+      $(<span class="string">'img[id*="product"]'</span>).each(<span class="keyword">function</span>(){
+          addToThumbs(<span class="keyword">this</span>);
+      });
+
+      $(<span class="string">'img[class*="product"]'</span>).each(<span class="keyword">function</span>(){
+          addToThumbs(<span class="keyword">this</span>);
+      });
+   }
+
+   <span class="comment">// Grab all images</span>
+   <span class="keyword">if</span>(thumbs.length &lt; <span class="number">10</span>){
+      $(<span class="string">'img'</span>).each(<span class="keyword">function</span>(){
+         <span class="keyword">if</span>($(<span class="keyword">this</span>).attr(<span class="string">'itemprop'</span>) === <span class="string">'image'</span>) <span class="keyword">return</span>;
+         <span class="keyword">var</span> alt = $(<span class="keyword">this</span>).attr(<span class="string">'alt'</span>);
+         <span class="comment">// Leave this test alone</span>
+         <span class="comment">// the selector 'img[alt="title"]' will not work if the title is like LG 42PT35342" PLASMA TV. Escaping issues.</span>
+         <span class="comment">// Image where the title of the page is equal to the content of the alt attribute of the image tag.</span>
+         <span class="keyword">if</span>(alt === title){
+            addToThumbs(<span class="keyword">this</span>,<span class="literal">true</span>);
+         }<span class="keyword">else</span>{
+            addToThumbs(<span class="keyword">this</span>);
+         }
+      });
+   }
+
+   <span class="keyword">if</span>(thumbs.length === <span class="number">0</span>){
+      thumbs = thumbsRejected;
+   }
+
+   <span class="keyword">return</span> thumbs;
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>window {Object} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Array} </li>
+  </ul>
+</p>
+<h4 id="scraptitle(window)">scrapTitle(window)</h4>
+<div><p>Retrieve the more appropriate title of the page</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">scrapTitle</span><span class="params">(window)</span>{</span>
+   <span class="keyword">var</span> $ = window.$;
+   <span class="keyword">var</span> url = window.location.href;
+
+   <span class="comment">// Tags or attributes whom can contain a nice title for the page</span>
+   <span class="keyword">var</span> titleTag =  $(<span class="string">'title'</span>).text().trim();
+   <span class="keyword">var</span> metaTitleTag = $(<span class="string">'meta[name="title"]'</span>).attr(<span class="string">'content'</span>);
+   <span class="keyword">var</span> openGraphTitle = $(<span class="string">'meta[property="og:title"]'</span>).attr(<span class="string">'content'</span>);
+   <span class="keyword">var</span> h1Tag = $(<span class="string">'h1:first'</span>).text().trim();
+   <span class="keyword">var</span> itempropNameTag = $(<span class="string">'[itemprop="name"]'</span>).text().trim();
+   <span class="keyword">var</span> titles = [titleTag, metaTitleTag, openGraphTitle, h1Tag, itempropNameTag];
+
+   <span class="comment">// Regex of the web site name</span>
+   <span class="keyword">var</span> nameWebsite = utils.getWebsiteName(url);
+   <span class="keyword">var</span> regex = <span class="keyword">new</span> RegExp(nameWebsite,<span class="string">'i'</span>);
+   <span class="comment">// Sort to find the best title</span>
+   <span class="keyword">var</span> titlesNotEmpty = titles.filter(<span class="keyword">function</span>(value){
+      <span class="keyword">return</span> !!value;
+   });
+   <span class="keyword">var</span> titlesBest = titlesNotEmpty.filter(<span class="keyword">function</span>(value){
+      <span class="keyword">return</span> !regex.test(value);
+   });
+   <span class="keyword">var</span> bestTitle = (titlesBest &amp;&amp; titlesBest[<span class="number">0</span>]) || (titlesNotEmpty &amp;&amp; titlesNotEmpty[<span class="number">0</span>]) || <span class="string">''</span>;
+   <span class="keyword">return</span> utils.inline(bestTitle);
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>window {Object} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{String} title of the page</li>
+  </ul>
+</p>
+<h4 id="scrapvideo(window)">scrapVideo(window)</h4>
+<div><p>Retrieve the video urls on the page</p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">scrapVideo</span><span class="params">(window)</span>{</span>
+   <span class="keyword">var</span> $ = window.$;
+   <span class="keyword">var</span> url = window.location.href;
+   <span class="keyword">var</span> thumbs = [];
+
+   <span class="comment">// Open Graph protocol by Facebook: &lt;meta property="og:video" content="(*)"/&gt;</span>
+   $(<span class="string">'meta'</span>).each(<span class="keyword">function</span>(){
+      <span class="keyword">var</span> property = $(<span class="keyword">this</span>).attr(<span class="string">'property'</span>);
+      <span class="keyword">var</span> content = $(<span class="keyword">this</span>).attr(<span class="string">'content'</span>);
+      <span class="keyword">if</span>(property === <span class="string">'og:video'</span> &amp;&amp; content){
+         thumbs.push(utils.toURL(content));
+      }
+   });
+
+   $(<span class="string">'video, embed'</span>).each(<span class="keyword">function</span>(){
+      <span class="keyword">var</span> src = $(<span class="keyword">this</span>).attr(<span class="string">'src'</span>);
+      <span class="keyword">if</span>(src) thumbs.push(utils.toURL(src,url));
+   });
+
+   <span class="keyword">return</span> thumbs;
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>window {Object} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Array} </li>
+  </ul>
+</p><h3 alt="lib/error/scrapinode-error.js" id="lib/error/scrapinode-error.js">lib/error/scrapinode-error.js</h3>
+<h4 id="util-=-require(&apos;util&apos;)">util = require('util')</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> util = require(<span class="string">'util'</span>);</code></pre>
+<h4 id="module.exports-=-scrapinodeerror">module.exports = ScrapinodeError</h4>
+<div><p>Expose <code>ScrapinodeError</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = ScrapinodeError;</code></pre>
+<h4 id="scrapinodeerror()">ScrapinodeError()</h4>
+<div><p>Create a new <code>ScrapinodeError</code></p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">ScrapinodeError</span><span class="params">(message)</span>{</span>
+   Error.call(<span class="keyword">this</span>);
+   Error.captureStackTrace(<span class="keyword">this</span>,arguments.callee);
+   <span class="keyword">this</span>.name = <span class="string">'ScrapinodeError'</span>;
+   <span class="keyword">this</span>.message = message;
+}
+
+util.inherits(ScrapinodeError,Error);</code></pre></section><section id="licence"><h2 id="licence">Licence</h2><p>(The MIT License)</p>
+<p>Copyright (c) 2013 Rémy Loubradou</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
+</section></article><br><footer><p>Brought to you by &nbsp;<a href="https://github.com/lbdremy/tusk">Tusk</a>.</p></footer></div></div></div><script>var _gaq = _gaq || [];_gaq.push(['_setAccount',  'UA-39490977-2']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type =  'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script></body>
