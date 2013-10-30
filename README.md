@@ -1,6 +1,6 @@
 # scrapinode - content driven and route based scraper
 
-[![](https://secure.travis-ci.org/lbdremy/scrapinode.png)](http://travis-ci.org/#!/lbdremy/scrapinode) [![Dependency Status](https://gemnasium.com/lbdremy/scrapinode.png)](https://gemnasium.com/lbdremy/scrapinode)
+[![](https://secure.travis-ci.org/lbdremy/scrapinode.png)](http://travis-ci.org/#!/lbdremy/scrapinode) [![Dependency Status](https://gemnasium.com/lbdremy/scrapinode.png)](https://gemnasium.com/lbdremy/scrapinode) [![Code Climate](https://codeclimate.com/repos/526a2ebc89af7e6ca100ad62/badges/40c4fb69e162d57195e2/gpa.png)](https://codeclimate.com/repos/526a2ebc89af7e6ca100ad62/feed)
 
 ## When use it?
 
