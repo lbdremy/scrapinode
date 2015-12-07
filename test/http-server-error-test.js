@@ -26,10 +26,19 @@ describe('scrapinode#createScraper(url,callback)',function(){
 	describe('when something blew up on the server',function(){
 		it('should return an HTTPError on the callback',function(done){
 			scrapinode.createScraper('http://localhost:3051/',function(err,scraper){
-				var httpError500 = new HTTPError(500);
+				var fakeReq = {
+					headers : {},
+					uri : { host : 'localhost:3051', path : '', protocol : 'http:'},
+					method : 'GET'
+				};
+				var fakeRes = {
+					headers : {},
+					statusCode : 500,
+					body : {}
+				};
+				var httpError500 = new HTTPError(fakeReq, fakeRes);
 				assert.instanceOf(err,HTTPError);
 				assert.equal(err.name,httpError500.name);
-				assert.equal(err.message,httpError500.message);
 				assert.isUndefined(scraper);
 				done();
 			})
